@@ -1,0 +1,416 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    body {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 13fr 4fr;
+    }
+    
+    .left_sidebar {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+        transition: .4s;
+        z-index: 99;
+    }
+    
+    .iconBx_m {
+        font-size: 1.5rem;
+        color: #747474;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
+        border-radius: 50%;
+        transition: .3s;
+    }
+    
+    .iconBx_m:hover {
+        color: #fff;
+        background-color: #4f94e4;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    #logo {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #888;
+        border-radius: 0;
+        color: #4f94e4;
+    }
+    
+    #logo:hover {
+        background-color: #fff;
+        color: #747473;
+    }
+    
+    .main_container {
+        background-color: #f3f3f3;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow-y: scroll;
+        padding: 10px 20px;
+    }
+    
+    .mc_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .nav_arrows {
+        display: flex;
+    }
+    
+    .arrow {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .btn {
+        font-size: .9rem;
+        background-color: #747473;
+        color: #fff;
+        padding: 5px 12px;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 15px;
+        transition: .3s;
+    }
+    
+    .btn:hover {
+        background-color: #4f94e4;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+    }
+    
+    .btn_blue {
+        background-color: #4f94e4;
+    }
+    
+    h1 {
+        font-size: 1.3rem;
+        color: #222;
+    }
+    
+    .sprint_overview .btn {
+        color: #4f94e4;
+        background-color: transparent;
+    }
+    
+    .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .sprint_overview_cards {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+    .sprint_overview_cards,
+    .team_members,
+    .sprint_stories,
+    .burnsown_chart,
+    .epics,
+    .project_statistics {
+        margin: .5rem 0 1rem;
+    }
+    
+    .sprint_overview_card {
+        background-color: #fff;
+        border-radius: 30px;
+        padding: 65px 20px 20px;
+        transition: .3s;
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+    }
+    
+    .sprint_overview_card:hover {
+        background-color: #4f94e4;
+        color: #fff;
+    }
+    
+    .sprint_overview_card:hover .icon_l {
+        color: #fff;
+    }
+    
+    .icon_l {
+        font-size: 2.5rem;
+        color: #4f94e4;
+        margin-bottom: 10px;
+        transition: .3s;
+    }
+    
+    h5 {
+        font-size: 2rem;
+        color: #222;
+    }
+    
+    .charts_stories {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td {
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+        padding: 8px;
+        font-size: .9rem;
+        color: #555;
+    }
+    
+    tr:hover {
+        background-color: rgba(79, 148, 228, 0.2);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    .imgBx {
+        position: relative;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .team_members {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        background-color: #fff;
+        padding: 30px 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+    }
+    
+    .team_member {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .member_content {
+        margin-left: 10px;
+    }
+    
+    .right_sidebar {
+        padding: 10px;
+        height: 100vh;
+        overflow-y: scroll;
+    }
+    
+    .epic {
+        display: grid;
+        grid-template-columns: 1fr 5fr 1fr;
+        align-items: center;
+        grid-gap: 10px;
+        margin-bottom: 20px;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+    
+    .epic:hover {
+        background-color: rgba(79, 148, 228, 0.2);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    h2 {
+        font-size: 1rem;
+        color: #333;
+    }
+    
+    .imgBx_s {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: #fff;
+    }
+    
+    .green {
+        background-color: green;
+    }
+    
+    .red {
+        background-color: red;
+    }
+    
+    .violet {
+        background-color: violet;
+    }
+    
+    .blue {
+        background-color: blue;
+    }
+    
+    .purple {
+        background-color: purple;
+    }
+    
+    .epic i {
+        justify-self: center;
+    }
+    
+    .project_statistic {
+        background-color: rgba(79, 148, 228, 0.2);
+        margin-bottom: 10px;
+        padding: 8px;
+        border-radius: 10px;
+        transition: .3s;
+    }
+    
+    .project_statistic:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    .progress {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2px;
+    }
+    
+    .stat_progress_cover {
+        position: relative;
+        width: 80%;
+        height: 12px;
+        border: 2px solid #4f94e4;
+        border-radius: 10px;
+    }
+    
+    #project,
+    #business,
+    #budget {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: #4f94e4;
+    }
+    
+    #project {
+        width: 75%;
+    }
+    
+    #business {
+        width: 42%;
+    }
+    
+    #budget {
+        width: 40%;
+    }
+    
+    .project_details {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+    /* scroll bar */
+    
+     ::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+     ::-webkit-scrollbar-track {
+        background: none;
+    }
+    
+     ::-webkit-scrollbar-thumb {
+        background: #b9b3ae;
+    }
+    
+     ::-webkit-scrollbar-thumb:hover {
+        background: #888;
+    }
+    
+    .toggle {
+        display: none;
+    }
+    /* responsive */
+    
+    @media(max-width:1100px) {
+        .charts_stories {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    @media(max-width:950px) {
+        body {
+            grid-template-columns: 1fr 11fr 6fr;
+        }
+        .sprint_overview_cards {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .team_members {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+    }
+    
+    @media(max-width:700px) {
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        .main_container,
+        .right_sidebar {
+            height: max-content;
+            overflow-y: auto;
+        }
+        .right_sidebar {
+            padding: 20px;
+        }
+        .left_sidebar {
+            position: fixed;
+            height: 100vh;
+            background-color: #fff;
+            transform: translateX(-100%);
+        }
+        .left_sidebar.active {
+            transform: translateX(0);
+        }
+        .toggle {
+            display: flex;
+        }
+        .toggle .close {
+            display: none;
+        }
+        .toggle .menu {
+            display: block;
+        }
+        .toggle.active .menu {
+            display: none;
+        }
+        .toggle.active .close {
+            display: block;
+        }
+    }
