@@ -58,7 +58,7 @@ $liste = $AC-> affichercoupon();
 
   <td>
       
-  <button class="btn btn-primary">   <a href="modifier.php?id=<?php echo $ad['id'];?>" class="text-light">modifier</a>
+  <button class="btn btn-primary">   <a  href ='index.php?id=".$id."'href="modifier.php?id=<?php echo $ad['id'];?>" class="text-light">modifier</a>
   </td> 
 
   <td>

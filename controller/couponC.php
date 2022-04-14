@@ -40,17 +40,6 @@ public function ajouter($coupon){
 		$e->getMessage();
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
 public function supprimer($id)
 {
     $sql ="DELETE FROM coupon WHERE id= :id";//: indication f bd bch nqulo fama valeur
@@ -86,36 +75,7 @@ $e->getMessage();
 
 }
 
-public function modifier($coupon, $id)
-	{
-		try {
-			$db = config::getConnexion();
-			$query = $db->prepare(
-				'UPDATE coupon SET 
-						date_deb = :date_deb,
-						date_experation = :date_experation,
-						taux_reduction = :taux_reduction,
-						code_coupon = :code_coupon
-		
-					WHERE id = :id'
-			);
-			$query->execute([
-				        'date_deb' => $coupon->getdate_deb(),
-				        'date_experation' => $coupon->getdate_experation(),
-				        'taux_reduction' => $coupon->gettaux_reduction(),
-				         'code_coupon' => $coupon->getcode_coupon()
-			]);
-			echo $query->rowCount() . " records UPDATED successfully <br>";
-		} catch (PDOException $e) {
-			$e->getMessage();
-		}
-	}
-
-
-
-
-
-	function recuperercoupon($id)
+function recuperercoupon($id)
 	{
 		$sql = "SELECT * from coupon where id=$id";
 		$db = config::getConnexion();
@@ -129,28 +89,33 @@ public function modifier($coupon, $id)
 			die('Erreur: ' . $e->getMessage());
 		}
 	}
-	function recuperercoupon1($id){
-		$sql="SELECT * from coupon where id=$id";
-		$db = config::getConnexion();
-		try{
-			$query=$db->prepare($sql);
-			$query->execute();
-			
-			$user = $query->fetch(PDO::FETCH_OBJ);
-			return $user;
-		}
-		catch (Exception $e){
-			die('Erreur: '.$e->getMessage());
+ function modifier($coupon, $id)
+	{
+		try {
+			$db = config::getConnexion();
+			$query = $db->prepare(
+				'UPDATE coupon SET 
+				id= :id,
+						date_deb= :date_deb,
+						date_experation= :date_experation,
+						taux_reduction= :taux_reduction,
+						code_coupon= :code_coupon
+		
+					WHERE id= :id'
+			);
+			$query->execute([
+				
+				        'date_deb' => $coupon->getdate_deb(),
+				        'date_experation' => $coupon->getdate_experation(),
+				        'taux_reduction' => $coupon->gettaux_reduction(),
+				         'code_coupon' => $coupon->getcode_coupon(),
+						 'id' =>  $id 
+			]);
+			echo $query->rowCount() . " records UPDATED successfully <br>";
+		} catch (PDOException $e) {
+			$e->getMessage();
 		}
 	}
 
-
-
 }
-
-
-
-
-
-
 ?>

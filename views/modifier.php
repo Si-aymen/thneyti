@@ -1,35 +1,39 @@
+
 <?php
 include "../controller/couponC.php";
 include_once '../Model/coupon.php';
-
-$coupon = new couponC();
 $error = "";
+$coupon = null;
+$couponC = new couponC();
+
 
 
 if (
-    
+    isset($_POST["id"]) &&
     isset($_POST["date_deb"]) &&
     isset($_POST["date_experation"]) &&
     isset($_POST["taux_reduction"]) &&
     isset($_POST["code_coupon"])
 ) {
     if (
-       
+        !empty($_POST["id"]) &&
+
         !empty($_POST["date_deb"]) &&
         !empty($_POST["date_experation"]) &&
         !empty($_POST["taux_reduction"]) &&
         !empty($_POST["code_coupon"])
     ) {
-        $user = new coupon(
-           
+        $coupon = new Coupon(
+            $_POST['id'],
+
             $_POST['date_deb'],
             $_POST['date_experation'],
             $_POST['taux_reduction'],
             $_POST['code_coupon']
         );
 
-        $coupon->modifier($coupon, $_GET['id']);
-        header('refresh:5;url=afficherListeCoupon.php');
+        $couponC->modifier($coupon, $_GET['id']);
+        header('refresh:5;url=index.php');
     } else
         $error = "Missing information";
 }
@@ -45,7 +49,7 @@ if (
 
 <body>
     
-    <button><a href="afficherListeCoupon.php">Retour à la liste</a></button>
+    <button><a href="index.php">Retour à la liste</a></button>
     <hr>
 
     <div id="error">
@@ -54,7 +58,7 @@ if (
 
     <?php
     if (isset($_GET['id'])) {
-        $user = $coupon->recuperercoupon($_GET['id']);
+        $id = $couponC->recuperercoupon($_GET['id']);
 
     ?>
         <form action="" method="POST">
@@ -68,7 +72,7 @@ if (
                         </label>
                     </td>
                     <td>
-                        <input type="number" name="id" id="id" value="<?php echo $user['id']; ?>" disabled>
+                        <input type="number" name="id" id="id" value="<?php echo $id['id']; ?>" disabled>
                     </td>
                 </tr>
                 <tr>
@@ -76,14 +80,14 @@ if (
                         <label for="date_deb">date_deb:
                         </label>
                     </td>
-                    <td><input type="date" name="date_deb" id="date_deb"  value="<?php echo $user['date_deb']; ?>"></td>
+                    <td><input type="date" name="date_deb" id="date_deb"  value="<?php echo $id['date_deb']; ?>"></td>
                 </tr>
                 <tr>
                     <td>
                         <label for="date_experation">date_experation:
                         </label>
                     </td>
-                    <td><input type="date" name="date_experation" id="date_experation"  value="<?php echo $user['date_experation']; ?>"></td>
+                    <td><input type="date" name="date_experation" id="date_experation"  value="<?php echo $id['date_experation']; ?>"></td>
                 </tr>
 
                 <tr>
@@ -92,7 +96,7 @@ if (
                         </label>
                     </td>
                     <td>
-                        <input type="number" name="taux_reduction" id="taux_reduction"  value="<?php echo $user['taux_reduction']; ?>">
+                        <input type="number" name="taux_reduction" id="taux_reduction"  value="<?php echo $id['taux_reduction']; ?>">
                     </td>
                 </tr>
                 <tr>
@@ -101,7 +105,7 @@ if (
                         </label>
                     </td>
                     <td>
-                        <input type="text" name="code_coupon" id="code_coupon"  value="<?php echo $user['code_coupon']; ?>">
+                        <input type="text" name="code_coupon" id="code_coupon"  value="<?php echo $id['code_coupon']; ?>">
                     </td>
                 </tr>
                
