@@ -1,129 +1,129 @@
-
-<?php
+<?PHP
+ob_start();
 include "../controller/couponC.php";
-include_once '../Model/coupon.php';
-$error = "";
-$coupon = null;
-$couponC = new couponC();
+include "../model/coupon.php";
+if (isset($_GET['id']))
+{
+	$couponC=new couponC();
+    $result=$couponC->recupererCommande($_GET['id']);
+	foreach($result as $row){
+		$id=$row['id'];
+		
+		$date_deb=$row['date_deb'];
+		$date_experation=$row['date_experation'];
+		$taux_reduction=$row['taux_reduction'];
+		$code_coupon=$row['code_coupon'];
+	
+    ?>
+
+    <form name="modifier coupon"  method="POST" action="modifier.php?id=<?PHP echo $row['id']; ?>" >
+						
+					<div class="form-group">
+					<label>ID </label>
+					<input type="hcinden" class="form-control" name="idcom_ini" value="<?PHP echo $_GET['id'];?>"  >
+					</div>
+						  
+          <div class="form-group">
+						<label>date_deb</label>
+						<input value="<?PHP echo $date_deb?>" class="form-control" name="date_deb" id="date_deb" type="date" ></textarea>
+					</div>
+					<div class="form-group">
+						<label>date_experation</label>
+						<input value="<?PHP echo $date_experation?>" class="form-control" name="date_experation" id="date_experation"  type="date" ></textarea>
+					</div>
+
+					<div class="form-group">
+						<label>taux_reduction</label>
+						<input value="<?PHP echo $taux_reduction?>" class="form-control" name="taux_reduction" id="taux_reduction" type="number" ></textarea>
+					</div>
+					<div class="form-group">
+						<label>code_coupon</label>
+						<input value="<?PHP echo $code_coupon?>" class="form-control" name="code_coupon" id="code_coupon"  type="text" ></textarea>
+					</div>
+				
+					
+					
+					
+
+					<button type="submit" name="modifier" value="modifier" class="ajouter">modifier</button>
 
 
+                            
+                           
+                           
+                           
+                          
+						</form><?PHP }}
 
-if (
-    isset($_POST["id"]) &&
-    isset($_POST["date_deb"]) &&
-    isset($_POST["date_experation"]) &&
-    isset($_POST["taux_reduction"]) &&
-    isset($_POST["code_coupon"])
-) {
-    if (
-        !empty($_POST["id"]) &&
+if (isset($_POST['modifier'])){
+	$coupon=new coupon($_POST['idcom_ini'],$_POST['date_deb'],$_POST['date_experation'],$_POST['taux_reduction'],$_POST['code_coupon']);
+	$couponC->modifier($coupon,$_POST['idcom_ini']);
+	header('Location: index.php');
+} ob_end_flush();?>
+</div>
+                      <div class="modal-footer d-flex justify-content-center">
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
 
-        !empty($_POST["date_deb"]) &&
-        !empty($_POST["date_experation"]) &&
-        !empty($_POST["taux_reduction"]) &&
-        !empty($_POST["code_coupon"])
-    ) {
-        $coupon = new Coupon(
-            $_POST['id'],
+        </div>
+        <!-- /.container-fluid -->
 
-            $_POST['date_deb'],
-            $_POST['date_experation'],
-            $_POST['taux_reduction'],
-            $_POST['code_coupon']
-        );
+      </div>
+      <!-- End of Main Content -->
 
-        $couponC->modifier($coupon, $_GET['id']);
-        header('refresh:5;url=index.php');
-    } else
-        $error = "Missing information";
-}
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
 
-?>
-<html>
-
-<head>
-    <title>Modifier coupon</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body>
-    
-    <button><a href="index.php">Retour à la liste</a></button>
-    <hr>
-
-    <div id="error">
-        <?php echo $error; ?>
     </div>
+    <!-- End of Content Wrapper -->
 
-    <?php
-    if (isset($_GET['id'])) {
-        $id = $couponC->recuperercoupon($_GET['id']);
+  </div>
+  <!-- End of Page Wrapper -->
 
-    ?>
-        <form action="" method="POST">
-            <table align="center">
-                <tr>
-                    <td rowspan='4' colspan='1'>
-                        Fiche Personnelle
-                    </td>
-                    <td>
-                        <label for="id">Id:
-                        </label>
-                    </td>
-                    <td>
-                        <input type="number" name="id" id="id" value="<?php echo $id['id']; ?>" disabled>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="date_deb">date_deb:
-                        </label>
-                    </td>
-                    <td><input type="date" name="date_deb" id="date_deb"  value="<?php echo $id['date_deb']; ?>"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="date_experation">date_experation:
-                        </label>
-                    </td>
-                    <td><input type="date" name="date_experation" id="date_experation"  value="<?php echo $id['date_experation']; ?>"></td>
-                </tr>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
 
-                <tr>
-                    <td>
-                        <label for="taux_reduction">taux_reduction:
-                        </label>
-                    </td>
-                    <td>
-                        <input type="number" name="taux_reduction" id="taux_reduction"  value="<?php echo $id['taux_reduction']; ?>">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="code_coupon">code_coupon:
-                        </label>
-                    </td>
-                    <td>
-                        <input type="text" name="code_coupon" id="code_coupon"  value="<?php echo $id['code_coupon']; ?>">
-                    </td>
-                </tr>
-               
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-                <tr>
-                    
-                    <td>
-                        <input type="submit" value="Modifier" name="modifer">
-                    </td>
-                    <td>
-                        <input type="reset" value="Annuler">
-                    </td>
-                </tr>
-            </table>
-        </form>
-    <?php
-    }
-    ?>
+
+
+
+
+
 </body>
 
-</html>
+
+
+

@@ -94,7 +94,7 @@ $liste =$adC->affichercoupon();
                 <div class="recent-payments">
                     <div class="title">
                         <h2>recent coupon code</h2>
-                        <a href="afficherListeCoupon.php" class="btn">View All</a>
+                        <a href="index.php" class="btn">View All</a>
                     </div>
                     
                     <table>
@@ -147,6 +147,7 @@ $liste =$adC->affichercoupon();
             </div>
         </div>
     </div>
+    
 </body>
 
 </html>

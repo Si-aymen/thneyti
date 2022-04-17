@@ -21,7 +21,7 @@ $liste = $AC-> affichercoupon();
 <body>
 <div class="constrainer">
         <button class="btn btn-primary my-5 "><a href ="ajouter.php"
-        class="text-light">add user</a>
+        class="text-light">add coupon</a>
         
 </button>
 
@@ -32,11 +32,11 @@ $liste = $AC-> affichercoupon();
   <table class="table">
   <thead>
     <tr>
-    <th scope="col">id </th>
-      <th scope="col">date debut</th>
-      <th scope="col">date experation</th>
-      <th scope="col">taux reduction</th>
-      <th scope="col">code coupon</th>
+       <th scope="col">id </th>
+      <th scope="col">date_debut</th>
+      <th scope="col">date_experation</th>
+      <th scope="col">taux_reduction</th>
+      <th scope="col">code_coupon</th>
     </tr>
   </thead>
   <tbody>
@@ -58,7 +58,7 @@ $liste = $AC-> affichercoupon();
 
   <td>
       
-  <button class="btn btn-primary">   <a  href ='index.php?id=".$id."'href="modifier.php?id=<?php echo $ad['id'];?>" class="text-light">modifier</a>
+  <button class="btn btn-primary">   <a  href='index.php?id=".$id."'href="modifier.php?id=<?php echo $ad['id'];?>" class="text-light">modifier</a>
   </td> 
 
   <td>

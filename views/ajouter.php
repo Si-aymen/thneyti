@@ -50,7 +50,8 @@ include '../model/coupon.php';
 
 $couponC=new couponC();
 $s=0;  
-if(isset($_POST['date_deb'])&&
+if(isset($_POST['id'])&&
+  isset($_POST['date_deb'])&&
 isset($_POST['date_experation'])&& isset($_POST['taux_reduction']) && 
 isset($_POST['code_coupon'])
 
@@ -58,7 +59,7 @@ isset($_POST['code_coupon'])
 
 
 {
-    $coupon=new coupon($_POST['date_deb'],$_POST['date_experation'],$_POST['taux_reduction'],$_POST['code_coupon']);
+    $coupon=new coupon($_POST['id'],$_POST['date_deb'],$_POST['date_experation'],$_POST['taux_reduction'],$_POST['code_coupon']);
  $s=1;
 }
 ?>
@@ -81,7 +82,7 @@ isset($_POST['code_coupon'])
 
 <form action="" method="POST">
  <div><pre>
- 
+ <label for="id">id: <input type="number"  id="id:" name="id" > 
 <label for="date_deb">date debut: <input type="date"  id="date_deb:" name="date_deb" >    
 <label for="date_experation">date experation: <input type="date"  id="date_experation" name="date_experation">
 <label for="taux_reduction">taux reduction: <input type="number" id="taux_reduction"   name="taux_reduction">
