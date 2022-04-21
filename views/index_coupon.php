@@ -1,10 +1,14 @@
+
 <?php
 include '../controller/couponC.php';
 
 $adC=new couponC();
 
 $liste =$adC->affichercoupon();
-
+if (isset($_GET['key'])) {
+    $liste = $adC->rechercheCoupon($_GET['key']);
+} else 
+$liste=$adC->affichercoupon() ;
 ?>
 
 <!DOCTYPE html>
@@ -30,10 +34,10 @@ $liste =$adC->affichercoupon();
             <li><a href ="index.php"><img src="school.png" alt="">&nbsp;<span>Reclamations</span></a> </li>
             <li><a href ="index.php"><img src="payment.png" alt="">&nbsp;<span>Income</span> </a></li>
             <li><a href ="index_coupon.php"><img src="coupon.png" alt="">&nbsp;<span>code</span></a> </li>
-             <li><a href ="index_pub.php"><img src="settings.png" alt="">&nbsp;<span>publicite</span></a> </li>
+            <li><a href ="index_pub.php"><img src="settings.png" alt="">&nbsp;<span>publicite</span></a> </li>
             <li><a href ="index.php"><img src="help-web-button.png" alt="">&nbsp; <span>Help</span></a></li>
             <li><a href ="index.php"><img src="settings.png" alt="">&nbsp;<span>Settings</span></a> </li>
-           
+        
         </ul>
     </div>
 
@@ -108,7 +112,7 @@ $adC->getRowsNumber();
                 <div class="recent-payments">
                     <div class="title">
                         <h2>recent coupon code</h2>
-                        <a href="index.php" class="btn">View All</a>
+                        <a href="index_coupon.php" class="btn">View All</a>
                         <a href="ajouter.php" class="btn" >Add coupon
                         
                     </a>
@@ -127,6 +131,11 @@ $adC->getRowsNumber();
             <td><h5>Details</h5></td>
             
         </tr>
+        <form method="get" action="index_coupon.php">
+                    <input type="text" name="key" placeholder="chercher..." />
+                    <input type="submit" value="chercher" placeholder="chercher..." class="btn btn-default btn-primary" />
+
+                </form>
         <?php
             foreach ($liste as  $adh){
         ?>
@@ -164,6 +173,9 @@ $adC->getRowsNumber();
             </div>
         </div>
     </div>
+
+
+    
     
 </body>
 

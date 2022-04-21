@@ -21,6 +21,7 @@
   text-align: center;
 }
     </style>
+    
 <body>
 <div class="side-menu">
         <div class="brand-name">
@@ -45,24 +46,23 @@
 
 
 <?php 
-include '../controller/couponC.php';
-include '../model/coupon.php';
+include '../controller/pubC.php';
+include '../model/pub.php';
 
-$couponC=new couponC();
+$pubC=new pubC();
 $s=0;  
-if(isset($_POST['id'])&&
-  isset($_POST['date_deb'])&&
-isset($_POST['date_experation'])&& isset($_POST['taux_reduction']) && 
-isset($_POST['code_coupon'])
+if(isset($_POST['id_publication'])&&
+  isset($_POST['photo'])&&
+isset($_POST['date_debut'])&& 
+isset($_POST['date_fin'])
 
 )
 
 
 {
-    $coupon=new coupon($_POST['id'],$_POST['date_deb'],$_POST['date_experation'],$_POST['taux_reduction'],$_POST['code_coupon']);
+    $pub=new pub($_POST['id_publication'],$_POST['photo'],$_POST['date_debut'],$_POST['date_fin']);
  $s=1;
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,41 +78,28 @@ isset($_POST['code_coupon'])
 </head>
 <body>
 
-<button><a href="index_cupon.php">Retour à la liste</a></button>
+<button><a href="index_pub.php">Retour à la liste</a></button>
 
 
 <form action="" method="POST">
  <div><pre>
- <label for="id">id: <input type="number"  id="id:" name="id" > 
-<label for="date_deb">date debut: <input type="date"  id="date_deb:" name="date_deb" >    
-<label for="date_experation">date experation: <input type="date"  id="date_experation" name="date_experation">
-<label for="taux_reduction">taux reduction: <input type="number" id="taux_reduction"   name="taux_reduction">
-
-<label for="code_coupon">code coupon:<input type="text" id="code_coupon" placeholder="entrer votre code coupon" name="code_coupon" > <a href="index2.php" class="btn">GENERATE </a>
-
+ <label for="id_publication">id_publication : <input type="number"  id="id_publication:" name="id_publication" > 
+<label for="photo">photo : <input type="file"  id="photo:" name="photo" >    
+<label for="date_debut">date debut: <input type="date"  id="date_debut" name="date_debut">
+<label for="date_fin">date fin: <input type="date" id="date_fin"   name="date_fin">
 
 				
 			</div>    </pre> 
-     <button   type="submit" class="btn btn-primary" name="submit" < input onclick="return validateForm();" > Submit </button> 
+<button    type="submit" class="btn btn-primary" name="submit" >Submit </button> 
 
         </form>
-     
-
-
-
-
         <?php if($s==1)
-        
-        
 {
-  
-$couponC->ajouter($coupon);
+$pubC->ajouter($pub);
 echo "<script>
-alert('Vous avez ajouter un coupon');
-</script>";
-        echo "<script> window.location.href='index_coupon.php'
+alert('Vous avez ajouter un publicite');</script>";
+        echo "<script> window.location.href='index_pub.php'
         </script>";
 }?>  
-
 </body>
 </html> 

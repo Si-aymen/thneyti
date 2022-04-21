@@ -1,9 +1,10 @@
 <?php
-include '../controller/couponC.php';
+include '../controller/pubC.php';
 
-$adC=new couponC();
+$adC=new pubC();
 
 $liste =$adC->affichercoupon();
+
 
 ?>
 
@@ -24,16 +25,16 @@ $liste =$adC->affichercoupon();
             <h1>THNEYTI</h1>
         </div>
         <ul>
-            <li><a href ="index.php"><img src="dashboard (2).png" alt="">&nbsp; <span>Dashboard</span> </a></li>
+        <li><a href ="index.php"><img src="dashboard (2).png" alt="">&nbsp; <span>Dashboard</span> </a></li>
             <li><a href ="index.php"><img src="reading-book (1).png" alt="">&nbsp;<span>Offers</span></a> </li>
             <li><a href ="index.php"><img src="teacher2.png" alt="">&nbsp;<span>Clients</span></a> </li>
             <li><a href ="index.php"><img src="school.png" alt="">&nbsp;<span>Reclamations</span></a> </li>
             <li><a href ="index.php"><img src="payment.png" alt="">&nbsp;<span>Income</span> </a></li>
             <li><a href ="index_coupon.php"><img src="coupon.png" alt="">&nbsp;<span>code</span></a> </li>
-             <li><a href ="index_pub.php"><img src="settings.png" alt="">&nbsp;<span>publicite</span></a> </li>
+            <li><a href ="index_pub.php"><img src="settings.png" alt="">&nbsp;<span>publicite</span></a> </li>
             <li><a href ="index.php"><img src="help-web-button.png" alt="">&nbsp; <span>Help</span></a></li>
             <li><a href ="index.php"><img src="settings.png" alt="">&nbsp;<span>Settings</span></a> </li>
-           
+
         </ul>
     </div>
 
@@ -68,16 +69,8 @@ $liste =$adC->affichercoupon();
                 </div>
                 <div class="card">
                     <div class="box">
-                        <h1>
-
-
-                        <?php
-$adC->getRowsNumber();
-
-
-?>
-                        </h1>
-                        <h3>offre coupon </h3>
+                        <h1>53</h1>
+                        <h3>offre reserved </h3>
                     </div>
                     <div class="icon-case">
                         <img src="teachers.png" alt="">
@@ -107,9 +100,11 @@ $adC->getRowsNumber();
             <div class="content-2">
                 <div class="recent-payments">
                     <div class="title">
-                        <h2>recent coupon code</h2>
-                        <a href="index.php" class="btn">View All</a>
-                        <a href="ajouter.php" class="btn" >Add coupon
+                        <h2>recent publicité</h2>
+                        <a href="index_pub.php" class="btn">View All</a>
+                        <!-- Button trigger modal -->
+
+                        <a href="ajouterpub.php" class="btn" >Add publicité
                         
                     </a>
                     </div>
@@ -117,10 +112,10 @@ $adC->getRowsNumber();
                     <table>
                     <tr>
             <td> <h5>ID</h5></td>
+            <td><h5>photo</h5></td>
             <td><h5>date debut</h5></td>
-            <td><h5>date experation</h5></td>
-            <td><h5>taux reduction</h5></td>
-            <td><h5>code coupon</h5></td>
+            <td><h5>date fin</h5></td>
+           
             
             <td><h5>Modifier</h5></td>
             <td><h5>Supprimer</h5></td>
@@ -131,15 +126,15 @@ $adC->getRowsNumber();
             foreach ($liste as  $adh){
         ?>
             <tr>
-                <td><?php echo $adh['id'];?></td>
-                <td><?php echo $adh['date_deb'];?></td>
-                <td><?php echo $adh['date_experation'];?></td>
-                <td><?php echo $adh['taux_reduction'];?></td>
-                <td><?php echo $adh['code_coupon'];?></td>
+                <td><?php echo $adh['id_publication'];?></td>
+                <td><?php echo $adh['photo'];?></td>
+                <td><?php echo $adh['date_debut'];?></td>
+                <td><?php echo $adh['date_fin'];?></td>
+               
             
                 
-                <td><a href="modifier.php?id=<?php echo $adh['id']; ?>" class="btn">modifier</a></td>
-                <td><a href="supprimer.php?id=<?php echo $adh['id']; ?>" class="btn">Supprimer</a></td>
+                <td><a href="modifier_pub.php?id_publication=<?php echo $adh['id_publication']; ?>" class="btn">modifier</a></td>
+                <td><a href="supprimer_pub.php?id_publication=<?php echo $adh['id_publication']; ?>" class="btn">Supprimer</a></td>
     
                 <td>
                     <form method="POST"

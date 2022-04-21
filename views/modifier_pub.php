@@ -47,66 +47,51 @@
 
 <?PHP
 ob_start();
-include "../controller/couponC.php";
-include "../model/coupon.php";
-if (isset($_GET['id']))
+include "../controller/pubC.php";
+include "../model/pub.php";
+if (isset($_GET['id_publication']))
 {
-	$couponC=new couponC();
-    $result=$couponC->recupererCommande($_GET['id']);
+	$pubC=new pubC();
+    $result=$pubC->recuperer($_GET['id_publication']);
 	foreach($result as $row){
-		$id=$row['id'];
+		$id_publication=$row['id_publication'];
 		
-		$date_deb=$row['date_deb'];
-		$date_experation=$row['date_experation'];
-		$taux_reduction=$row['taux_reduction'];
-		$code_coupon=$row['code_coupon'];
+		$photo=$row['photo'];
+		$date_debut=$row['date_debut'];
+		$date_fin=$row['date_fin'];
+		
 	
     ?>
 
-    <form name="modifier coupon"  method="POST" action="modifier.php?id=<?PHP echo $row['id']; ?>" >
-						
+    <form name="modifier publication"  method="POST" action="modifier_pub.php?id=<?PHP echo $row['id_publication']; ?>" 
 					<div class="form-group">
 					<label>ID </label>
-					<input type="hcinden" class="form-control" name="idcom_ini" value="<?PHP echo $_GET['id'];?>"  >
+					<input type="hcinden" class="form-control" name="idcom_ini" value="<?PHP echo $_GET['id_publication'];?>"  >
 					</div>
 						  
           <div class="form-group">
-						<label>date_deb</label>
-						<input value="<?PHP echo $date_deb?>" class="form-control" name="date_deb" id="date_deb" type="date" ></textarea>
+						<label>photo</label>
+						<input value="<?PHP echo $photo?>" class="form-control" name="photo" id="photo" type="file" ></textarea>
 					</div>
 					<div class="form-group">
-						<label>date_experation</label>
-						<input value="<?PHP echo $date_experation?>" class="form-control" name="date_experation" id="date_experation"  type="date" ></textarea>
+						<label>date_debut</label>
+						<input value="<?PHP echo $date_debut?>" class="form-control" name="date_debut" id="date_debut"  type="date" ></textarea>
+					</div>
+                    <div class="form-group">
+						<label>date_fin</label>
+						<input value="<?PHP echo $date_fin?>" class="form-control" name="date_fin" id="date_fin"  type="date" ></textarea>
 					</div>
 
-					<div class="form-group">
-						<label>taux_reduction</label>
-						<input value="<?PHP echo $taux_reduction?>" class="form-control" name="taux_reduction" id="taux_reduction" type="number" ></textarea>
-					</div>
-					
-
-
-          <label for="code_coupon">code coupon:<input type="text" id="code_coupon" placeholder="entrer votre code coupon" name="code_coupon" > <a href="index2.php" class="btn">GENERATE </a>
-					</div>
-				
-					
-					
-					
-
+	
 					<button type="submit" name="modifier" value="modifier" class="ajouter">modifier</button>
-
-
-                            
-                           
-                           
-                           
-                          
+            
 						</form><?PHP }}
 
 if (isset($_POST['modifier'])){
-	$coupon=new coupon($_POST['idcom_ini'],$_POST['date_deb'],$_POST['date_experation'],$_POST['taux_reduction'],$_POST['code_coupon']);
-	$couponC->modifier($coupon,$_POST['idcom_ini']);
-	header('Location: index_coupon.php');
+    $pubC=new pubC();
+	$pub=new pub($_POST['idcom_ini'],$_POST['photo'],$_POST['date_debut'],$_POST['date_fin']);
+	$pubC->modifierpub($coupon,$_POST['idcom_ini']);
+	header('Location: index_pub.php');
 } ob_end_flush();?>
 </div>
                       <div class="modal-footer d-flex justify-content-center">

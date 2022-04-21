@@ -35,7 +35,7 @@ public function ajouter($couponC){
 		'date_deb'=>$couponC->getdate_deb(),
 		'date_experation'=>$couponC->getdate_experation(),
 		'taux_reduction'=>$couponC->gettaux_reduction(),
-		'code_coupon'=>$couponC->getcode_coupon(),
+		'code_coupon'=>$couponC->getcode_coupon()
 			
 		]);
 	}
@@ -126,5 +126,39 @@ function recupererCommande($id){
         die('Erreur: '.$e->getMessage());
     }
 }
+function tri_date(){
+    $sql="SELECT * FROM coupon ORDER BY date_deb ASC ";
+    $db = config::getConnexion();
+    try{
+    $liste=$db->query($sql);
+    return $liste;
+    }
+    catch (Exception $e){
+        die('Erreur: '.$e->getMessage());
+    }
+
+}
+public function rechercheCoupon($key)
+{
+    $sql = "SELECT * FROM coupon WHERE id LIKE '%$key%' OR taux_reduction LIKE '%$key%' OR code_coupon LIKE '%$key%'";
+    $db = config::getConnexion() ;
+    try {
+        $liste = $db->query($sql);
+        return $liste;
+    } catch (Exception $e) {
+        die('Erreur: ' . $e->getMessage());
+    }
+}
+public function getRowsNumber() {
+    $sql = "SELECT COUNT(*) FROM coupon";
+    $db = config::getConnexion();
+    $stmt = $db->query($sql);
+    $count = $stmt->fetchColumn();
+    //return $count;
+    print $count;
+}
+
+
+
 }	
 ?>
