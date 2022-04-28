@@ -1,5 +1,4 @@
 <?php 
-
 include '../controller/reclamationC.php';
 
 $AC = new reclamationC();//appel au controlleur
