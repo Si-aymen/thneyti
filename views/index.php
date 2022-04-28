@@ -100,7 +100,7 @@ $liste=$adC->afficherReclamation() ;
                 <div class="recent-payments">
                     <div class="title">
                         <h2>recent reclamation</h2>
-                        <a href="afficherReclamation.php" class="btn">View All</a>
+                        <a href="pdf.php" class="btn">PDF</a>
                     </div>
                     
                     <table>
