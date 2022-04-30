@@ -1,5 +1,5 @@
 <?php
-require_once '../config.php';
+include '../config.php';
 
 class couponC{
 
@@ -27,28 +27,29 @@ public function ajouter($couponC){
 	$pdo=config::getConnexion();
 	try {
 		$query=$pdo->prepare(
-			"INSERT INTO coupon (idd,date_deb,date_experation,taux_reduction,code_coupon) VALUES (:idd,:date_deb,:date_experation,:taux_reduction,:code_coupon);"
+			"INSERT INTO coupon (id,date_deb,date_experation,taux_reduction,code_coupon,etat) VALUES (:id,:date_deb,:date_experation,:taux_reduction,:code_coupon,:etat);"
 		);
 		$query->execute([
                      
-		'idd'=>$couponC->getidd(), 
+		'id'=>$couponC->getid(), 
 		'date_deb'=>$couponC->getdate_deb(),
 		'date_experation'=>$couponC->getdate_experation(),
 		'taux_reduction'=>$couponC->gettaux_reduction(),
-		'code_coupon'=>$couponC->getcode_coupon()
-			
+		'code_coupon'=>$couponC->getcode_coupon(),
+        'etat'=>$couponC->getetat(),
+
 		]);
 	}
 	catch(PODException $e) {
 		$e->getMessage();
 	}
 }
-public function supprimer($idd)
+public function supprimer($id)
 {
-    $sql ="DELETE FROM coupon WHERE idd= :idd";//: indication f bd bch nqulo fama valeur
+    $sql ="DELETE FROM coupon WHERE id= :id";//: indication f bd bch nqulo fama valeur
     $db =config::getConnexion();
     $query=$db->prepare($sql);
-    $query->bindvalue(':idd',$idd);
+    $query->bindvalue(':id',$id);
     try {
 $query->execute();
 
@@ -61,9 +62,9 @@ $query->execute();
 
 
 
-public function detail($idd)//k niclicki aa detail nchuf les info d'un adherent(recuperer un enrgst)
+public function detail($id)//k niclicki aa detail nchuf les info d'un adherent(recuperer un enrgst)
 {
-$sql="SELECT *FROM coupon where idd=idd";
+$sql="SELECT *FROM coupon where id=id";
 $db=config::getConnexion();
 try{
 $query=$db->prepare($sql);
@@ -78,28 +79,26 @@ $e->getMessage();
 
 }
 
-public function modifier($couponC,$idd){
-    $sql="UPDATE coupon SET  idd=:idd,date_deb=:date_deb,date_experation=:date_experation,taux_reduction=:taux_reduction,code_coupon=:code_coupon WHERE idd=:idd";
+public function modifier($couponC,$id){
+    $sql="UPDATE coupon SET  id=:id,date_deb=:date_deb,date_experation=:date_experation,taux_reduction=:taux_reduction,code_coupon=:code_coupon WHERE id=:id";
     
     $db = config::getConnexion();
     //$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
 try{		
     $req=$db->prepare($sql);
   
-    $idd=$couponC->getidd();
+    $id=$couponC->getid();
   
     $date_deb=$couponC->getdate_deb();
     $date_experation=$couponC->getdate_experation();
     $taux_reduction=$couponC->gettaux_reduction();
     $code_coupon=$couponC->getcode_coupon();
-    
-    $datas = array(':idd'=> $idd, ':date_deb'=> $date_deb, ':date_experation'=> $date_experation,':taux_reduction'=> $taux_reduction,':code_coupon'=> $code_coupon);
-    $req->bindValue(':idd', $idd);
+    $datas = array(':id'=> $id, ':date_deb'=> $date_deb, ':date_experation'=> $date_experation,':taux_reduction'=> $taux_reduction,':code_coupon'=> $code_coupon);
+    $req->bindValue(':id', $id);
     $req->bindValue(':date_deb', $date_deb);
     $req->bindValue(':date_experation', $date_experation);
     $req->bindValue(':taux_reduction', $taux_reduction);
     $req->bindValue(':code_coupon', $code_coupon);
-    
 
     
     
@@ -115,8 +114,8 @@ print_r($datas);
     
 }
 
-function recupererCommande($idd){
-    $sql="SELECT * from  coupon where idd=$idd";
+function recupererCommande($id){
+    $sql="SELECT * from  coupon where id=$id";
     $db = config::getConnexion();
     try{
     $liste=$db->query($sql);
@@ -140,7 +139,7 @@ function tri_date(){
 }
 public function rechercheCoupon($key)
 {
-    $sql = "SELECT * FROM coupon WHERE idd LIKE '%$key%' OR taux_reduction LIKE '%$key%' OR code_coupon LIKE '%$key%'";
+    $sql = "SELECT * FROM coupon WHERE id LIKE '%$key%' OR taux_reduction LIKE '%$key%' OR code_coupon LIKE '%$key%'";
     $db = config::getConnexion() ;
     try {
         $liste = $db->query($sql);

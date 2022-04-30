@@ -49,33 +49,25 @@
 <?php 
 include '../controller/pubC.php';
 include '../model/pub.php';
-require_once '../controller/couponC.php';
-require_once '../model/coupon.php';
 $pubC=new pubC();
 $s=0;  
 if(isset($_POST['idd'])&&
   isset($_POST['photo'])&&
 isset($_POST['date_debut'])&& 
-isset($_POST['date_fin'])
-
+isset($_POST['date_fin'])&&
+isset($_POST['description'])
 )
 
 
 {
-    $pub=new pub($_POST['idd'],$_POST['photo'],$_POST['date_debut'],$_POST['date_fin']);
+    $pub=new pub($_POST['idd'],$_POST['photo'],$_POST['date_debut'],$_POST['date_fin'],$_POST['description']);
  $s=1;
  $pubC->ajouter($pub);
 }
-if(isset($_POST['idd'])
-)
 
 
-{
-  $couponC=new couponC();
 
-  $coupon=new coupon($_POST['idd'],'','','','');
-  $couponC->ajouter($coupon);
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -118,12 +110,12 @@ if(isset($_POST['idd'])
                         
 <form action="" method="POST">
  <div><pre>
- <label for="idd">idd: <input type="number"  id="idd:" name="idd" > 
+ <label for="idd">ID: <input type="number"  id="idd:" name="idd" > 
 <label for="photo">photo : <input type="file"  id="photo:" name="photo" >    
 <label for="date_debut">date debut: <input type="date"  id="date_debut" name="date_debut">
 <label for="date_fin">date fin: <input type="date" id="date_fin"   name="date_fin">
 
-				
+<label for="description"> description: <input type="text" id="description"   name="description">				
 			</div>    </pre> 
 <button    type="submit" class="btn btn-primary" name="submit" >Submit </button> 
 

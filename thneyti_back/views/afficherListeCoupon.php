@@ -37,6 +37,7 @@ $liste = $AC-> affichercoupon();
       <th scope="col">date_experation</th>
       <th scope="col">taux_reduction</th>
       <th scope="col">code_coupon</th>
+      <th scope="col">etat</th>
     </tr>
   </thead>
   <tbody>
@@ -53,7 +54,7 @@ $liste = $AC-> affichercoupon();
   <td><?php  echo $ad['date_experation'];?></td>
   <td><?php  echo $ad['taux_reduction'];?></td>
   <td><?php  echo $ad['code_coupon'];?></td>
-  
+  <td><?php  echo $ad['etat'];?></td>
 
 
   <td>

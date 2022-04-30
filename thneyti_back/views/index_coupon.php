@@ -114,11 +114,12 @@ $adC->getRowsNumber();
                     
                     <table>
                     <tr>
-            <td> <h5>IDd</h5></td>
+            <td> <h5>ID</h5></td>
             <td><h5>date debut</h5></td>
             <td><h5>date experation</h5></td>
             <td><h5>taux reduction</h5></td>
             <td><h5>code coupon</h5></td>
+            <td><h5> etat</h5></td>
             
             <td><h5>Modifier</h5></td>
             <td><h5>Supprimer</h5></td>
@@ -134,26 +135,26 @@ $adC->getRowsNumber();
             foreach ($liste as  $adh){
         ?>
             <tr>
-                <td><?php echo $adh['idd'];?></td>
+                <td><?php echo $adh['id'];?></td>
                 <td><?php echo $adh['date_deb'];?></td>
                 <td><?php echo $adh['date_experation'];?></td>
                 <td><?php echo $adh['taux_reduction'];?></td>
                 <td><?php echo $adh['code_coupon'];?></td>
-            
-                
-                <td><a href="modifier.php?idd=<?php echo $adh['idd']; ?>" class="btn">modifier</a></td>
-                <td><a href="supprimer.php?idd=<?php echo $adh['idd']; ?>" class="btn">Supprimer</a></td>
+                <td><?php echo $adh['etat'];?></td>
+                <td><a href="modifier.php?id=<?php echo $adh['id']; ?>" class="btn">modifier</a></td>
+                <td><a href="supprimer.php?id=<?php echo $adh['id']; ?>" class="btn">Supprimer</a></td>
     
                 <td>
                     <form method="POST"
                     action="detail.php">
     
                     <input type="submit" value="voir Details" class="btn" >
-                    <input type="hidden" name="idd" value="<?php echo $adh["idd"] ; ?>">
+                    <input type="hidden" name="id" value="<?php echo $adh["id"] ; ?>">
             </form>
             </td>
 
             </tr>
+            
         <?php
             }
         ?>

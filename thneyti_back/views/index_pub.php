@@ -129,7 +129,7 @@ $adC->getRowspub();
             <td><h5>photo</h5></td>
             <td><h5>date debut</h5></td>
             <td><h5>date fin</h5></td>
-           
+            <td><h5>Description</h5></td> 
             
             <td><h5>Modifier</h5></td>
             <td><h5>Supprimer</h5></td>
@@ -150,7 +150,7 @@ $adC->getRowspub();
                 <td><img src="img/<?php  echo $adh['photo'];?>" alt="image" class="mini_img"></td>
                 <td><?php echo $adh['date_debut'];?></td>
                 <td><?php echo $adh['date_fin'];?></td>
-               
+                <td><?php echo $adh['description'];?></td>
             
                 
                 <td><a href="modifier_pub.php?idd=<?php echo $adh['idd']; ?>" class="btn">modifier</a></td>

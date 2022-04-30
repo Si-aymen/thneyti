@@ -59,13 +59,13 @@ if (isset($_GET['idd']))
 		$photo=$row['photo'];
 		$date_debut=$row['date_debut'];
 		$date_fin=$row['date_fin'];
-		
+		$description=$row['description'];
 	
     ?>
 
     <form name="modifier publication"  method="POST" action="modifier_pub.php?idd=<?PHP echo $row['idd']; ?>" 
 					<div class="form-group">
-					<label>IDd </label>
+					<label>ID </label>
 					<input type="hcinden" class="form-control" name="idcom_ini" value="<?PHP echo $_GET['idd'];?>"  >
 					</div>
 						  
@@ -81,7 +81,11 @@ if (isset($_GET['idd']))
 						<label>date_fin</label>
 						<input value="<?PHP echo $date_fin?>" class="form-control" name="date_fin" id="date_fin"  type="date" ></textarea>
 					</div>
-
+          <div class="form-group">
+						<label>description</label>
+						<input value="<?PHP echo $description?>" class="form-control" name="description" id="description"  type="text" ></textarea>
+					</div>
+          
 	
 					<button type="submit" name="modifier" value="modifier" class="ajouter">modifier</button>
             
@@ -89,7 +93,7 @@ if (isset($_GET['idd']))
 
 if (isset($_POST['modifier'])){
     $pubC=new pubC();
-	$pub=new pub($_POST['idcom_ini'],$_POST['photo'],$_POST['date_debut'],$_POST['date_fin']);
+	$pub=new pub($_POST['idcom_ini'],$_POST['photo'],$_POST['date_debut'],$_POST['date_fin'],$_POST['description']);
 	$pubC->modifier($pub,$_POST['idcom_ini']);
 	header('Location: index_pub.php');
 } ob_end_flush();?>

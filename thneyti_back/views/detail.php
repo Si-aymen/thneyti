@@ -39,7 +39,7 @@ $ad=$adC->detail($_POST["idd"]);
   <li><?php  echo $ad['date_experation'];?></li>
   <li><?php  echo $ad['taux_reduction'];?></li>
   <li><?php  echo $ad['code_coupon'];?></li>
-  
+  <li><?php  echo $ad['etat'];?></li>
 
 
 

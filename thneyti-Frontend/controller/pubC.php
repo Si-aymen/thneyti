@@ -20,23 +20,3 @@ class pubC{
 		}
     }
 
-public function ajouter($pubC){
-	$pdo=config::getConnexion();
-	try {
-		$query=$pdo->prepare(
-			"INSERT INTO annonce (id_publication,photo,date_debut,date_fin) VALUES (:id_publication,:photo,:date_debut,:date_fin);"
-		);
-		$query->execute([
-                     
-		'id_publication'=>$pubC->getid_publication(), 
-		'photo'=>$pubC->getphoto(),
-		'date_debut'=>$pubC->getdate_debut(),
-		'date_fin'=>$pubC->getdate_fin(),
-		
-			
-		]);
-	}
-	catch(PODException $e) {
-		$e->getMessage();
-	}
-}

@@ -24,7 +24,7 @@ public function ajouter($pubC){
 	$pdo=config::getConnexion();
 	try {
 		$query=$pdo->prepare(
-			"INSERT INTO annonce (idd,photo,date_debut,date_fin) VALUES (:idd,:photo,:date_debut,:date_fin);"
+			"INSERT INTO annonce (idd,photo,date_debut,date_fin,description) VALUES (:idd,:photo,:date_debut,:date_fin,:description);"
 		);
 		$query->execute([
                      
@@ -32,7 +32,7 @@ public function ajouter($pubC){
 		'photo'=>$pubC->getphoto(),
 		'date_debut'=>$pubC->getdate_debut(),
 		'date_fin'=>$pubC->getdate_fin(),
-		
+		'description'=>$pubC->getdescription()
 			
 		]);
 	}
@@ -57,7 +57,7 @@ $query->execute();
 
 }
  function modifier($pubC,$idd){
-    $sql="UPDATE annonce SET  idd=:idd,photo=:photo,date_debut=:date_debut,date_fin=:date_fin WHERE idd=:idd";
+    $sql="UPDATE annonce SET  idd=:idd,photo=:photo,date_debut=:date_debut,date_fin=:date_fin,description=:description  WHERE idd=:idd";
     
     $db = config::getConnexion();
     //$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
@@ -68,14 +68,14 @@ try{
     $photo=$pubC->getphoto();
     $date_debut=$pubC->getdate_debut();
     $date_fin=$pubC->getdate_fin();
-   
+    $description=$pubC->getdescription();
     
-    $datas = array(':idd'=> $idd, ':photo'=> $photo, ':date_debut'=> $date_debut,':date_fin'=> $date_fin);
+    $datas = array(':idd'=> $idd, ':photo'=> $photo, ':date_debut'=> $date_debut,':date_fin'=> $date_fin,':description'=> $description);
     $req->bindValue(':idd', $idd);
     $req->bindValue(':photo', $photo);
     $req->bindValue(':date_debut', $date_debut);
     $req->bindValue(':date_fin', $date_fin);
-  
+    $req->bindValue(':description', $description);
     
 
     

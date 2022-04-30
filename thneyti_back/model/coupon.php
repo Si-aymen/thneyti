@@ -1,25 +1,26 @@
 
 <?PHP
    class coupon{
-      private  $idd ;   
+      private  $id ;   
       private  $date_deb ;
       private $date_experation;
       private $taux_reduction;
       private $code_coupon;
- 
-     
+      
+      private $etat;
       
       
-      function __construct($idd,$date_deb,$date_experation,$taux_reduction,$code_coupon){
-         $this->idd=$idd;
+      function __construct($id,$date_deb,$date_experation,$taux_reduction,$code_coupon,$etat){
+         $this->id=$id;
          $this->date_deb=$date_deb;
          $this->date_experation=$date_experation;
          $this->taux_reduction=$taux_reduction;
          $this->code_coupon=$code_coupon;
+         $this->etat=$etat;
       }
       
-      function getidd(){
-         return $this->idd;
+      function getid(){
+         return $this->id;
       }
       function getdate_deb(){
          return $this->date_deb;
@@ -33,8 +34,10 @@
       function getcode_coupon() {
          return $this->code_coupon;
       }
-      
-
+    
+      function getetat() {
+         return $this->etat;
+      }
       
       
    }
