@@ -138,6 +138,19 @@ public function rechercheCategorie($key)
     }
 }
 
+public function triparnom(){
+    $sql="SELECT * FROM categorie ORDER BY nomcateg ASC ";
+    $db = config::getConnexion();
+    try{
+    $liste=$db->query($sql);
+    return $liste;
+    }
+    catch (Exception $e){
+        die('Erreur: '.$e->getMessage());
+    }
+
+}
+
  	
 }
 ?>
