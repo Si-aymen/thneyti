@@ -3,6 +3,12 @@
 
 
 
+
+
+
+
+
+
 <HTML>
 <head>
 
@@ -72,50 +78,30 @@
                       </div>
 					  <div class="modal-body mx-3"><?PHP
 ob_start();
-include "../controller/ReclamationC.php";
+include "../controller/reponseC.php";
 if (isset($_GET['cin']))
 {
-	$ReclamationC=new ReclamationC();
-    $result=$ReclamationC->recupererReclamation($_GET['cin']);
+	$reponseC=new reponseC();
+    $result=$reponseC->recupererReponse($_GET['cin']);
 	foreach($result as $row){
-		$nom=$row['nom'];
-		$prenom=$row['prenom'];
 		$cin=$row['cin'];
-		$email=$row['email'];
-		$province=$row['province'];
-		$sexe=$row['sexe'];
-		$commentaire=$row['commentaire'];
+		$reponse=$row['reponse'];
+		$coupon=$row['coupon'];
 ?>
 <form method="POST">
 						
 					
-						  <div class="form-group">
-						<label>Nom</label>
-						<input value="<?PHP echo $nom?>" class="form-control" name="nom" id="nom" placeholder="Votre Nom" rows="10" type="text" ></textarea>
-					</div>
           <div class="form-group">
-						<label>Prenom</label>
-						<input value="<?PHP echo $prenom?>" class="form-control" name="prenom" id="prenom" placeholder="Votre Prenom" rows="10" type="text" ></textarea>
-					</div>
-                    <div class="form-group">
 					<label>cin</label>
 					<input type="hcinden" class="form-control" name="cin" value="<?PHP echo $cin ?>" rows="10" >
 					</div>
 					<div class="form-group">
-						<label>Email</label>
-						<input value="<?PHP echo $email?>" class="form-control" name="email" id="email" placeholder="Votre Email" rows="10" type="email" ></textarea>
+						<label>reponse</label>
+						<input value="<?PHP echo $reponse?>" class="form-control" name="reponse" id="reponse" placeholder="Votre reponse" rows="10" type="text" ></textarea>
 					</div>
 					<div class="form-group">
-						<label>province</label>
-						<input value="<?PHP echo $province?>" class="form-control" name="province" id="province" placeholder="Votre province" rows="10" type="text" ></textarea>
-					</div>
-					<div class="form-group">
-						<label>sexe</label>
-						<input value="<?PHP echo $sexe?>" class="form-control" name="sexe" id="sexe" placeholder="Votre sexe" rows="10" type="text" ></textarea>
-					</div>
-					<div class="form-group">
-						<label>commentaire</label>
-						<input value="<?PHP echo $commentaire?>" class="form-control" name="commentaire" id="commentaire" placeholder="Votre commentaire" rows="10" type="text" ></textarea>
+						<label>coupon</label>
+						<input value="<?PHP echo $coupon?>" class="form-control" name="coupon" id="coupon" placeholder="Votre coupon" rows="10" type="text" ></textarea>
 					</div>
 					
 					
@@ -131,20 +117,12 @@ if (isset($_GET['cin']))
                           
 						</form><?PHP }}
 
-if (isset($_POST['nom']) and isset($_POST['prenom']) and isset($_POST['cin']) and isset($_POST['email']) and isset($_POST['province'])and isset($_POST['sexe'])and isset($_POST['commentaire']))
-{
-$reclam=new reclamation($_POST['nom'],$_POST['prenom'],$_POST['cin'],$_POST['email'],$_POST['province'],$_POST['sexe'],$_POST['commentaire']);
-
-$reclamC=new ReclamationC();
-$reclamC->ajouter($reclam);
-header('Location: index.php');
-	
-}
-else
-{
-	
-}
-ob_end_flush();?>
+if (isset($_POST['modifier'])){
+	$rep=new reponse($_POST['cin'],$_POST['reponse'],$_POST['coupon']);
+	$reponseC->modifierReponse($rep,$_POST['cin']);
+	echo $_POST['cin'];
+	header('Location: indexrep.php');
+} ob_end_flush();?>
 </div>
                       <div class="modal-footer d-flex justify-content-center">
                         

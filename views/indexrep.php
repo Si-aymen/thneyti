@@ -101,6 +101,7 @@ $liste=$adC->afficherReponse() ;
                     <div class="title">
                         <h2>recent reponses</h2>
                         <a href="afficherReponse.php" class="btn">View All</a>
+                        <a href="tri_reponse.php" class="btn">Trier</a>
                     </div>
                     
                     <table>

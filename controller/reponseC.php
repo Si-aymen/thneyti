@@ -83,7 +83,7 @@ $e->getMessage();
 
 }
 
-function modifierReponse($reponse,$cin)
+function modifierReponse($rep,$cin)
 {
         $sql="UPDATE reponses SET cin=:cin, reponse=:reponse, coupon=:coupon WHERE cin=:cin";
         
@@ -91,9 +91,9 @@ function modifierReponse($reponse,$cin)
         //$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
 try{        
         $req=$db->prepare($sql);
-        $cin=$reponse->getcin();
-        $reponse=$reponse->getreponse();
-        $coupon=$reponse->getcoupon();
+        $cin=$rep->getcin();
+        $reponse=$rep->getreponse();
+        $coupon=$rep->getcoupon();
         $datas = array(':cin'=>$cin, 'reponse'=>$reponse, 'coupon'=>$coupon);
         $req->bindValue(':cin',$cin);
         $req->bindValue(':reponse',$reponse);
@@ -136,6 +136,20 @@ public function rechercheReponse($key)
     } catch (Exception $e) {
         die('Erreur: ' . $e->getMessage());
     }
+}
+
+
+public function triparnom(){
+    $sql="SELECT * FROM reponses ORDER BY reponse ASC ";
+    $db = config::getConnexion();
+    try{
+    $liste=$db->query($sql);
+    return $liste;
+    }
+    catch (Exception $e){
+        die('Erreur: '.$e->getMessage());
+    }
+
 }
 
  	
