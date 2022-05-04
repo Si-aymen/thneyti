@@ -153,6 +153,8 @@ $liste=$adC->triparcin() ;
 
             
             <td><a href="indexrep.php?cin=<?php echo $adh['cin']; ?>" class="btn">Répondre</a></td>
+
+
             
             </tr>
         <?php
