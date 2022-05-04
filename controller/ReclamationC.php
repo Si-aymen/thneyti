@@ -25,8 +25,8 @@ class ReclamationC{
 
 
 public function ajouter($reclamation){
-    $sql="insert into reclamation (nom,prenom,cin,email,province,sexe,commentaire) values (:nom,:prenom, :cin,:email,:province,:sexe,:commentaire)";
-    $sql1="insert into reponses (cin) values (:cin)";
+    $sql="INSERT INTO reclamation (nom,prenom,cin,email,province,sexe,commentaire) values (:nom,:prenom, :cin,:email,:province,:sexe,:commentaire)";
+    $sql1="INSERT INTO reponses (cin) values (:cin)";
     $db = config::getConnexion();
     try{
     $req=$db->prepare($sql);
@@ -60,7 +60,7 @@ public function ajouter($reclamation){
 }
 public function supprimer($cin)
 {
-    $sql ="DELETE FROM reclamation WHERE cin= :cin";//: indication f bd bch nqulo fama valeur
+    $sql ="DELETE FROM reclamation WHERE cin= :cin";
     $db =config::getConnexion();
     $query=$db->prepare($sql);
     $query->bindvalue(':cin',$cin);
@@ -155,6 +155,19 @@ public function rechercheReclamation($key)
     } catch (Exception $e) {
         die('Erreur: ' . $e->getMessage());
     }
+}
+
+public function triparcin(){
+    $sql="SELECT * FROM reclamation ORDER BY nom ASC ";
+    $db = config::getConnexion();
+    try{
+    $liste=$db->query($sql);
+    return $liste;
+    }
+    catch (Exception $e){
+        die('Erreur: '.$e->getMessage());
+    }
+
 }
 
  	

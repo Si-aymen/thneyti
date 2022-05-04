@@ -6,7 +6,7 @@ $adC=new ReclamationC();
 if (isset($_GET['key'])) {
         $liste = $adC->rechercheReclamation($_GET['key']);
     } else 
-$liste=$adC->afficherReclamation() ;
+$liste=$adC->triparcin() ;
 
 //$liste =$adC->afficherReclamation();
 
@@ -101,7 +101,7 @@ $liste=$adC->afficherReclamation() ;
                     <div class="title">
                         <h2>recent reclamation</h2>
                         <a href="pdf.php" class="btn">PDF</a>
-                        <a href="tri_reclamation.php" class="btn">Trier</a>
+                        <a href="index.php" class="btn">Non Trier</a>
                     </div>
                     
                     <table>
