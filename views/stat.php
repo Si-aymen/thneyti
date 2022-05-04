@@ -51,7 +51,7 @@ $result = $pdo->query("SELECT nomcateg, count(*) as number FROM categorie GROUP 
                      ]);  
                 var options = {  
                       title: 'Pourcentage des Catégories',  
-                      //is3D:true,  
+                      is3D:true,  
                       pieHole: 0.4  
                      };  
                 var chart = new google.visualization.PieChart(document.getElementById('piechart'));  
