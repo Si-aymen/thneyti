@@ -102,6 +102,7 @@ $liste=$adC->afficherCategorie() ;
                         <h2>recent categories</h2>
                         <a href="afficherCategorie.php" class="btn">View All</a>
                         <a href="tri_categorie.php" class="btn">Trier</a>
+                        <a href="stat.php" class="btn">Statistiques</a>
                     </div>
                     
                     <table>
