@@ -112,7 +112,7 @@ public function getRowspub() {
 }
 public function recherchepub($key)
 {
-    $sql = "SELECT * FROM annonce WHERE idd LIKE '%$key%' ";
+    $sql = "SELECT * FROM annonce WHERE idd LIKE '%$key%' OR date_debut like '%$key%' OR date_fin like '%$key%'  ";
     $db = config::getConnexion() ;
     try {
         $liste = $db->query($sql);

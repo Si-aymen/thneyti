@@ -1,5 +1,5 @@
 <?php
-require '../config.php';
+require_once '../config.php';
 
 class pubC{
 
@@ -8,7 +8,7 @@ class pubC{
 	{
 		$db=config::getConnexion();
 		 try{
-			$query=$db->prepare("SELECT * FROM annonce");
+			$query=$db->prepare("SELECT description  FROM annonce where idd=1  ");
 			$query->execute();
 			$result=$query->fetchAll();//testaaml kn meaa select permet de recuperer les resultat  
 			return $result;
@@ -19,4 +19,11 @@ class pubC{
 	$e->getMessage();
 		}
     }
+	
 
+    
+  
+
+
+}	
+?>

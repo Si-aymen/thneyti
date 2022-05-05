@@ -23,6 +23,7 @@
     </style>
     
 <body>
+
 <div class="side-menu">
         <div class="brand-name">
             <h1>THNEYTI</h1>
@@ -45,7 +46,7 @@
 </body>
 </html>
 
-
+<script type="text/javascript" src="pub.js"></script>
 <?php 
 include '../controller/pubC.php';
 include '../model/pub.php';
@@ -117,7 +118,7 @@ isset($_POST['description'])
 
 <label for="description"> description: <input type="text" id="description"   name="description">				
 			</div>    </pre> 
-<button    type="submit" class="btn btn-primary" name="submit" >Submit </button> 
+<button    type="submit" class="btn btn-primary" name="submit" onclick=" return verifier()" >Submit </button> 
 
         </form>
         <?php if($s==1)

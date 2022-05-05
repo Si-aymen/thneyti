@@ -109,6 +109,7 @@ $adC->getRowsNumber();
                     <div class="title">
                         <h2>recent coupon code</h2>
                         <a href="index_coupon.php" class="btn">View All</a>
+                        
                         <a href="ajouter.php" class="btn" >Add coupon</a>
                     </div>
                     
@@ -145,12 +146,11 @@ $adC->getRowsNumber();
                 <td><a href="supprimer.php?id=<?php echo $adh['id']; ?>" class="btn">Supprimer</a></td>
     
                 <td>
-                    <form method="POST"
-                    action="detail.php">
-    
-                    <input type="submit" value="voir Details" class="btn" >
-                    <input type="hidden" name="id" value="<?php echo $adh["id"] ; ?>">
-            </form>
+                <div>
+            <form method="POST" action="pdf.php">
+                       <input type="submit" name="create_pdf" value="PDF">
+                     </form>
+                     </div>
             </td>
 
             </tr>

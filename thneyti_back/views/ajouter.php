@@ -68,6 +68,8 @@ isset($_POST['etat'])
  $s=1;
 
 }
+   
+
 
 
 ?>
@@ -123,22 +125,30 @@ return false;
     
   
 <form action="" method="POST">
+  
  <div><pre>
-
-<label for="id">id: <input type="number" id="id:" name="id" > 
-<label for="date_deb">date debut: <input type="date"  id="date_deb:" name="date_deb" >    
-<label for="date_experation">date experation: <input type="date"  id="date_experation" name="date_experation">
-<label for="taux_reduction">taux reduction: <input type="number" id="taux_reduction"   name="taux_reduction">
-
-<label for="code_coupon">code coupon:<input type="text" id="code_coupon" placeholder="entrer votre code coupon" name="code_coupon" > <a href="index2.php" class="btn">GENERATE </a>
+ <div class="form-group">
+<label for="id">id: <input type="number" id="id:" name="id" > <br>
+  </div>
+  <div class="form-group">
+<label for="date_deb">date debut: <input type="date"  id="date_deb:" name="date_deb" > <br>  
+<div class="form-group"> 
+<label for="date_experation">date experation: <input type="date"  id="date_experation" name="date_experation"><br>
+<div class="form-group">
+<label for="taux_reduction">taux reduction: <input type="number" id="taux_reduction"   name="taux_reduction" ><br>
+<div class="form-group">
+<label for="code_coupon">code coupon:<input type="text"class="form-control"  id="code_coupon" placeholder="entrer votre code coupon" name="code_coupon" ><br><br><br> <a href="index2.php" class="btn">GENERATE </a><br>
+<div class="form-group">
 <label for="etat">etat : <input type="number" id="etat"   name="etat">
 
 
 
 				
-			</div>    </pre> 
-     <button   type="submit" class="btn btn-primary" name="submit" Onclick="return validateForm()" > Submit </button> 
-
+			</div>  
+      </pre> 
+          
+     <button   type="submit" class="btn btn-primary" name="submit" Onclick="return validateForm()" > valider </button> 
+   
         </form>
      
 
