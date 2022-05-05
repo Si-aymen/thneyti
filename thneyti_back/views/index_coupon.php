@@ -125,7 +125,7 @@ $adC->getRowsNumber();
             <td><h5>Modifier</h5></td>
             <td><h5>Supprimer</h5></td>
             <td><h5>Details</h5></td>
-            
+            <td><h5>mail</h5></td>
         </tr>
         <form method="get" action="index_coupon.php">
                     <input type="text" name="key" placeholder="chercher..." />
@@ -144,6 +144,8 @@ $adC->getRowsNumber();
                 <td><?php echo $adh['etat'];?></td>
                 <td><a href="modifier.php?id=<?php echo $adh['id']; ?>" class="btn">modifier</a></td>
                 <td><a href="supprimer.php?id=<?php echo $adh['id']; ?>" class="btn">Supprimer</a></td>
+                
+                
     
                 <td>
                 <div>
@@ -152,7 +154,7 @@ $adC->getRowsNumber();
                      </form>
                      </div>
             </td>
-
+            <td><a href="mail.php?id=<?php echo $adh['id']; ?>" class="btn">mail</a></td>
             </tr>
             
         <?php

@@ -125,7 +125,7 @@ return false;
     
   
 <form action="" method="POST">
-  
+<fieldset>
  <div><pre>
  <div class="form-group">
 <label for="id">id: <input type="number" id="id:" name="id" > <br>
@@ -148,7 +148,7 @@ return false;
       </pre> 
           
      <button   type="submit" class="btn btn-primary" name="submit" Onclick="return validateForm()" > valider </button> 
-   
+     </fieldset>
         </form>
      
 
