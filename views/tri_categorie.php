@@ -102,6 +102,7 @@ $liste=$adC->triparnom() ;
                         <h2>recent categories</h2>
                         <a href="afficherCategorie.php" class="btn">View All</a>
                         <a href="indexcat.php" class="btn">Non Trier</a>
+                        <a href="stat.php" class="btn">Statistiques</a>
                     </div>
                     
                     <table>
