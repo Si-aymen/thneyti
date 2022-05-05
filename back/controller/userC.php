@@ -86,6 +86,7 @@ $e->getMessage();
 
  function modifier($userC, $id)
 	{
+        var_dump('test');
 		$sql="UPDATE user SET id=:id, nom=:nom, prenom=:prenom, date_de_naissance=:date_de_naissance, email=:email, mot_de_passe=:mot_de_passe, adresse=:adresse , sexe=:sexe  , tel=:tel WHERE id=:id";
         
         $db = config::getConnexion();
@@ -130,7 +131,23 @@ try{
                  die('Erreur: '.$e->getMessage());
              }
       }
+
+
+      public function rechercheUser($key)
+      {
+          $sql = "SELECT * FROM user WHERE id LIKE '%$key%' OR nom LIKE '%$key%' OR prenom LIKE '%$key%' OR  email LIKE '%$key%' OR  tel LIKE '%$key%' " ;
+          $db = config::getConnexion() ;
+          try {
+              $liste = $db->query($sql);
+              return $liste;
+          } catch (Exception $e) {
+              die('Erreur: ' . $e->getMessage());
+          }
+      }
     
 
 }
+
+
+
 ?>

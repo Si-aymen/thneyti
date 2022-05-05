@@ -3,7 +3,35 @@ include '../controller/userC.php';
 
 $adC=new userC();
 
-$liste =$adC->afficherUser();
+if (isset($_GET['key'])) {
+        $liste = $adC->rechercheUser($_GET['key']);
+    } else 
+$liste=$adC->afficherUser() ;     
+/*$db = config::getConnexion() ; 
+        $sort="";
+        if(isset ($_GET['sort']))
+        {
+        if ($_GET['sort']=="a-z")
+        {
+            $sort="Nom ASC";
+        }
+        if($_GET['sort']=="z-a")
+        {
+            $sort="Nom DESC";
+        }
+        if ($_GET['sort']=="ua-z")
+        {
+            $sort="Prenom ASC";
+        }
+        if($_GET['sort']=="uz-a")
+        {
+            $sort="Prenom DESC";
+        }
+                              }
+                              $liste=$db->prepare("SELECT * FROM user ORDER BY  $sort");
+                             
+                             $liste->execute();
+                             */
 
 ?>
 
@@ -40,15 +68,23 @@ $liste =$adC->afficherUser();
 
             <div id="google_translate_element"></div>
 <script type="text/javascript">
-function googleTranslateElementInit() {
+function googleTranslateElementInit() 
+{
 new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
 </script>
+
+
+
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+              
+                <form method="get" action="index.php">
                 <div class="search">
-                    <input type="text" placeholder="Search..">
+                    <input type="text" name="key" placeholder="Search..">
                     <button type="submit"><img src="search.png" alt=""></button>
                 </div>
+                </form>
+               
                 <div class="user">
                 <div class="fb-share-button" data-href="http://localhost/WEB/Utilisateur/back/views/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A8000%2FAffichepofro&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"><img src="notifications.png" alt=""></a></div>
 
@@ -67,7 +103,7 @@ new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_el
                 <div class="card">
                     <div class="box">
                         <h1>194</h1>
-                        <h3>Offres</h3>
+                        <h3>Clients</h3>
                     </div>
                     <div class="icon-case">
                         <img src="students.png" alt="">
@@ -107,8 +143,15 @@ new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_el
             <div class="content-2">
                 <div class="recent-payments">
                     <div class="title">
+                   <!--  <select name="sort"  value="sort">
+                       <option value="" class="d-none d-md-flex ms-4" selected>---Select Option---</option>
+                        <option value="a-z" <?php if(isset ($_GET['sort']) && $_GET['sort']=="a-z"){echo "selected";} ?> > Nom (ASC)</option>
+                        <option value="z-a" <?php if(isset ($_GET['sort']) && $_GET['sort']=="z-a"){echo "selected";} ?>>Nom (DESC)</option>
+                        <option value="ua-z" <?php if(isset ($_GET['sort']) && $_GET['sort']=="a-z"){echo "selected";} ?> > Prenom (ASC)</option>
+                        <option value="uz-a" <?php if(isset ($_GET['sort']) && $_GET['sort']=="z-a"){echo "selected";} ?>>Prenom (DESC)</option>
+                    </select>  -->
                         <h2>Liste Utilisateurs</h2>
-                       
+                        <button type="submit" class="btn" id="basic">Trier</button>
                     </div>
                     
                     <table>
@@ -126,9 +169,10 @@ new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_el
             <td><h5>Role</h5></td> 
             <td><h5>Modifier</h5></td>
             <td><h5>Supprimer</h5></td>
-            <td><h5>Details</h5></td>
+            <td><h5>Contacter</h5></td>
 
         </tr>
+
         <?php
             foreach ($liste as  $adh){
         ?>
@@ -149,13 +193,14 @@ new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_el
          
                 <td><a href="modifier.php?id=<?php echo $adh['id']; ?>" class="btn">Modifier</a></td>
                 <td><a href="supprimer.php?id=<?php echo $adh['id']; ?>" class="btn">Supprimer</a></td>
-    
+               
                 <td>
                     <form method="POST"
                     action="detail.php">
     
-                    <input type="submit" value="Details" class="btn" >
+                    <input type="submit" value="Contacter" class="btn" >
                     <input type="hidden" name="id" value="<?php echo $adh["id"] ; ?>">
+                  
             </form>
             </td>
 

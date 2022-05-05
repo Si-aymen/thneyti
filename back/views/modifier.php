@@ -33,7 +33,7 @@ isset($_POST['tel'])
       {
         
 
-        $userC=new userC( 
+        $user=new user( 
           $_POST['nom'],
           $_POST['prenom'],
           $_POST['date_de_naissance'],
@@ -45,8 +45,9 @@ isset($_POST['tel'])
           $_POST['role'],
           $_POST['tel']
         );
-      $userC->modifier($userC,$_GET['id']);
-      header('Location:index.php');
+        var_dump($user);
+      $userC->modifier($user,$_GET['id']);
+      //header('Location:index.php');
   
 }
   else
@@ -152,7 +153,7 @@ background-color: #000000;
                 <?php  
                     if (isset($_GET['id'])){
                       $result=$userC->recupererUser($_GET['id']);
-                      var_dump($result);
+                      
                     
                 ?>
 
