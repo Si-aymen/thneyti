@@ -117,8 +117,9 @@ $liste=$adC->afficherReclamation() ;
             
                 <td><h5>Modifier</h5></td>
                 <td><h5>Supprimer</h5></td>
-                <td><h5>Details</h5></td>
                 <td><h5>Repondre</h5></td>
+                <td><h5>Mail</h5></td>
+                <td><h5>Details</h5></td>
             
              </tr>
              <form method="get" action="index.php">
@@ -141,18 +142,20 @@ $liste=$adC->afficherReclamation() ;
                 
                 <td><a href="modifier.php?cin=<?php echo $adh['cin']; ?>" class="btn">modifier</a></td>
                 <td><a href="supprimer.php?cin=<?php echo $adh['cin']; ?>" class="btn">Supprimer</a></td>
+                <td><a href="indexrep.php?cin=<?php echo $adh['cin']; ?>" class="btn">Répondre</a></td>
+                <td><a href="mail.php?cin=<?php echo $adh['cin']; ?>" class="btn">Mail</a></td>
     
                 <td>
                     <form method="POST"
                     action="detail.php">
     
-                    <input type="submit" value="voir Details" class="btn" >
+                    <input type="submit" value="Details" class="btn" >
                     <input type="hidden" name="cin" value="<?php echo $adh["cin"] ; ?>">
             </form>
             </td>
 
             
-            <td><a href="indexrep.php?cin=<?php echo $adh['cin']; ?>" class="btn">Répondre</a></td>
+            
 
             </tr>
         <?php
