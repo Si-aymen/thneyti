@@ -1,12 +1,34 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reclamation</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>THNEYTI Admin Panel</title>
 </head>
+
 <body>
+    <div class="side-menu">
+        <div class="brand-name">
+            <h1>THNEYTI</h1>
+        </div>
+        <ul>
+            <li><img src="dashboard (2).png" alt="">&nbsp; <span>Dashboard</span> </li>
+            <li><img src="reading-book (1).png" alt="">&nbsp;<span>Offers</span> </li>
+            <li><a href="indexcat.php" ><img src="school.png" alt="">&nbsp;<span>Catégories</span></a> </li>
+            <li><a href="index.php" ><img src="school.png" alt="">&nbsp;<span>Reclamations</span></a> </li>
+            <li><a href="indexrep.php" ><img src="school.png" alt="">&nbsp;<span>Réponses</span></a> </li>
+            <li><img src="payment.png" alt="">&nbsp;<span>Income</span> </li>
+            <li><img src=".png" alt="">&nbsp;<span>code</span> </li>
+            <li><img src="help-web-button.png" alt="">&nbsp; <span>Help</span></li>
+            <li><img src="settings.png" alt="">&nbsp;<span>Settings</span> </li>
+        </ul>
+    </div>
+
+    <div class="container">
     <hl>Formulaire de réclamation</hl>
     <br><br>
     <form method="post">
@@ -93,5 +115,7 @@ else
 
         <br><br>
         <a href="index.php" target="_parent">Retour vers la page d'accueil</a>
-    </body>
+    </div>
+</body>
+
 </html>
