@@ -1,4 +1,26 @@
+<?php
 
+$hostname="localhost";
+$db="projet_web";
+$username="root";
+$password="";
+$et=0;
+
+$conn=new PDO("mysql:host=$hostname;dbname=$db",$username,$password);
+$sql="SELECT code_coupon FROM coupon WHERE etat=$et";
+
+try
+{
+  $stmt=$conn->prepare($sql);
+  $stmt->execute();
+  $results=$stmt->fetchAll();
+}
+catch(Exception $ex)
+{
+  echo($ex->getMessage());
+}
+
+?>
 
 
 
@@ -62,7 +84,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800" style="text-align:center">Modifier Reclamation</h1>
+          <h1 class="h3 mb-2 text-gray-800" style="text-align:center">Réponse</h1>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
@@ -97,17 +119,25 @@ if (isset($_GET['cin']))
 					</div>
 					<div class="form-group">
 						<label>reponse</label>
-						<input value="<?PHP echo $reponse?>" class="form-control" name="reponse" id="reponse" placeholder="Votre reponse" rows="10" type="text" ></textarea>
+						<input value="Voici Votre code" class="form-control" name="reponse" id="reponse" placeholder="Votre reponse" rows="10" type="text" ></textarea>
 					</div>
 					<div class="form-group">
-						<label>coupon</label>
-						<input value="<?PHP echo $coupon?>" class="form-control" name="coupon" id="coupon" placeholder="Votre coupon" rows="10" type="text" ></textarea>
+						<label>coupon</label> <br>
+            <select name="coupon" id="coupon" autocomplete="off">
+                <option>--Select Coupon--</option>
+                <?php foreach ($results as $output) {?>
+                  <option><?php echo $output["code_coupon"];?></option>
+                 <?php }?>
+
+            </select>
+
+						
 					</div>
 					
 					
 					
 
-					<button type="submit" name="modifier" value="modifier" class="ajouter">modifier</button>
+					<button type="submit" name="modifier" value="modifier" class="ajouter">envoyer</button>
 
 
                             
@@ -120,8 +150,13 @@ if (isset($_GET['cin']))
 if (isset($_POST['modifier'])){
 	$rep=new reponse($_POST['cin'],$_POST['reponse'],$_POST['coupon']);
 	$reponseC->modifierReponse($rep,$_POST['cin']);
+  $cin=$_POST['cin'];
 	echo $_POST['cin'];
-	header('Location: indexrep.php');
+
+
+
+  
+	header("Location: http://localhost/2A14/intégration/views/mail_coupon.php?cin=$cin");
 } ob_end_flush();?>
 </div>
                       <div class="modal-footer d-flex justify-content-center">

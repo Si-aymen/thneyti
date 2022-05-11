@@ -7,11 +7,10 @@ $result = $pdo->query("SELECT nomcateg, count(*) as number FROM categorie GROUP 
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>trippie</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -61,7 +60,25 @@ $result = $pdo->query("SELECT nomcateg, count(*) as number FROM categorie GROUP 
 </head>
 
 <body>
-<div class="container-xxl position-relative bg-white d-flex p-0">
+
+<div class="side-menu">
+        <div class="brand-name">
+            <h1>THNEYTI</h1>
+        </div>
+        <ul>
+            <li><img src="dashboard (2).png" alt="">&nbsp; <span>Dashboard</span> </li>
+            <li><img src="reading-book (1).png" alt="">&nbsp;<span>Offers</span> </li>
+            <li><a href="indexcat.php" ><img src="school.png" alt="">&nbsp;<span>Catégories</span></a> </li>
+            <li><a href="index.php" ><img src="school.png" alt="">&nbsp;<span>Reclamations</span></a> </li>
+            <li><a href="indexrep.php" ><img src="school.png" alt="">&nbsp;<span>Réponses</span></a> </li>
+            <li><img src="payment.png" alt="">&nbsp;<span>Income</span> </li>
+            <li><img src=".png" alt="">&nbsp;<span>code</span> </li>
+            <li><img src="help-web-button.png" alt="">&nbsp; <span>Help</span></li>
+            <li><img src="settings.png" alt="">&nbsp;<span>Settings</span> </li>
+        </ul>
+    </div>
+
+<div class="container">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
