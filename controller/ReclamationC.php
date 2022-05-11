@@ -1,7 +1,7 @@
 <?php
 require_once '../config.php';
-require_once '../models/reclamation.php';
-require_once '../models/reponse.php';
+require_once '../model/reclamation.php';
+require_once '../model/reponse.php';
 class ReclamationC{
 
 	/*afficher*/

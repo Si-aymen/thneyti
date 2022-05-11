@@ -1,132 +1,62 @@
-<?php
-  //require 'connect.php';
-  $objectPdo = new PDO('mysql:host=localhost;dbname=projet_web', 'root', '');
-  $pdoStat = $objectPdo->prepare('SELECT nom,prenom,cin,email,province,sexe,commentaire FROM reclamation ORDER BY cin ASC ');
-  $executeIsOK = $pdoStat->execute();
-  $liste= $pdoStat->fetchAll();
-
- ?>
-
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>THNEYTI Admin Panel</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
-<body onload="window.print();">
-<div class="wrapper">
-  <!-- Main content -->
-  <section class="invoice">
-    <!-- title row -->
-    <div class="row">
-      <div class="col-xs-12">
-        <h2 class="page-header">
-          <br>
-          <i class="fa fa-globe"></i> Reclamations
-          <small class="pull-right"></small>
-        </h2>
-      </div>
-      <!-- /.col -->
-    </div>
-    <!-- info row -->
-    <div class="row invoice-info">
-      <div class="col-sm-4 invoice-col">
-        <br>
-        From
-        <address>
-          <strong>Thneyti</strong><br>
-          Tunis<br>
-          Phone: (+216) 54833493<br>
-          Email: mohamedtaher.guerfala@esprit.tn
-
-        </address>
-      </div>
-      <br>
-      <!-- /.col -->
-      
-      <!-- /.col -->
-      
-      <!-- /.col -->
-    </div>
-    <!-- /.row -->
-
-    <!-- Table row -->
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" border="1">
-  <thead>
-    <tr>
-      <th scope="col"> nom</th>
-      <th scope="col"> prenom</th>
-      <th scope="col"> cin</th>
-      <th scope="col"> email</th>
-      <th scope="col"> province</th>
-      <th scope="col"> sexe</th>
-      <th scope="col"> commentaire</th>
-
-
-      
-
-    </tr>
-  </thead>
-  <tbody>
-          <?php foreach ($liste as $liste): ?> 
-              <tr>
-              
-                <td><?PHP echo $liste['nom']; ?></td>
-              	<td><?PHP echo $liste['prenom']; ?></td>
-              	<td><?PHP echo $liste['cin']; ?></td>
-               	<td><?PHP echo $liste['email']; ?></td>
-              	<td><?PHP echo $liste['province']; ?></td>
-              	<td><?PHP echo $liste['sexe']; ?></td>
-                <td><?PHP echo $liste['commentaire']; ?></td>
-
-                <td>
-      
-                </td>
-                
-              </tr>
-                  <?php endforeach; 
-                  ?>
-    </tbody>
-</table>
-
-    <!-- /.row -->
-
-    <div class="row">
-      <!-- accepted payments column -->
-      
-      <!-- /.col -->
-      
-      <!-- /.col -->
-    </div>
-    <!-- /.row -->
-  </section>
-  <!-- /.content -->
-</div>
-<!-- ./wrapper -->
-
-</body>
-</html>
+!
+ <?php  
+ function fetch_data()  
+ {  
+      $output = '';  
+      $connect = mysqli_connect("localhost", "root", "", "thneyti");  
+      $sql = "SELECT * FROM coupon ORDER BY id ASC";  
+      $result = mysqli_query($connect, $sql);  
+      while($row = mysqli_fetch_array($result))  
+      {       
+      $output .= '<tr>  
+                          <td>'.$row["id"].'</td>  
+                          <td>'.$row["date_deb"].'</td>  
+                          <td>'.$row["date_experation"].'</td>  
+                          <td>'.$row["taux_reduction"].'</td>  
+                          <td>'.$row["code_coupon"].'</td>
+                          <td>'.$row["etat"].'</td> 
+                          
+                     </tr>  
+                          ';  
+      }  
+      return $output;  
+ }  
+ if(isset($_POST["create_pdf"]))  
+ {  
+      require_once('tcpdf.php');  
+      $obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);  
+      $obj_pdf->SetCreator(PDF_CREATOR);  
+      $obj_pdf->SetTitle("Liste Des coupons");  
+      $obj_pdf->SetHeaderData('', '', PDF_HEADER_TITLE, PDF_HEADER_STRING);  
+      $obj_pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));  
+      $obj_pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));  
+      $obj_pdf->SetDefaultMonospacedFont('helvetica');  
+      $obj_pdf->SetFooterMargin(PDF_MARGIN_FOOTER);  
+      $obj_pdf->SetMargins(PDF_MARGIN_LEFT, '5', PDF_MARGIN_RIGHT);  
+      $obj_pdf->setPrintHeader(false);  
+      $obj_pdf->setPrintFooter(false);  
+      $obj_pdf->SetAutoPageBreak(TRUE, 10);  
+      $obj_pdf->SetFont('helvetica', '', 12);  
+      $obj_pdf->AddPage();
+      $content = '';  
+      $content .= '  
+      <h3 align="center">Liste Des coupons</h3><br /><br />  
+      <table border="1" cellspacing="0" cellpadding="5">  
+           <tr>  
+                <th width="10%">Identifiant</th>  
+                <th width="13%">date debut </th>  
+                <th width="13%">date experation</th>  
+                <th width="9%">taux reduction</th>  
+                <th width="20%">code coupon</th>
+                <th width="20%">etat</th>
+             
+           </tr>  
+      ';  
+      $content .= fetch_data();  
+      $content .= '</table>';  
+      $obj_pdf->writeHTML($content);  
+      ob_end_clean();
+      $obj_pdf->Output('sample.pdf', 'I');  
+ }  
+ 
+ ?> 

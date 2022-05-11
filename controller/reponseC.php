@@ -1,6 +1,6 @@
 <?php
 require_once '../config.php';
-require_once '../models/reponse.php';
+require_once '../model/reponse.php';
 class reponseC{
 
 	/*afficher*/
@@ -68,7 +68,7 @@ $query->execute();
 
 public function detailReponse($cin)//k niclicki aa detail nchuf les info d'un adherent(recuperer un enrgst)
 {
-$sql="SELECT * FROM reponses where cin=$cin";
+$sql="SELECT * FROM reponses where cin= '$cin'";
 $db=config::getConnexion();
 try{
 $query=$db->prepare($sql);

@@ -29,15 +29,17 @@ $liste=$adC->triparcin() ;
             <h1>THNEYTI</h1>
         </div>
         <ul>
-            <li><img src="dashboard (2).png" alt="">&nbsp; <span>Dashboard</span> </li>
-            <li><img src="reading-book (1).png" alt="">&nbsp;<span>Offers</span> </li>
-            <li><a href="indexcat.php" ><img src="school.png" alt="">&nbsp;<span>Catégories</span></a> </li>
-            <li><a href="index.php" ><img src="school.png" alt="">&nbsp;<span>Reclamations</span></a> </li>
-            <li><a href="indexrep.php" ><img src="school.png" alt="">&nbsp;<span>Réponses</span></a> </li>
-            <li><img src="payment.png" alt="">&nbsp;<span>Income</span> </li>
-            <li><img src=".png" alt="">&nbsp;<span>code</span> </li>
-            <li><img src="help-web-button.png" alt="">&nbsp; <span>Help</span></li>
-            <li><img src="settings.png" alt="">&nbsp;<span>Settings</span> </li>
+            <li><a href="index.php"><img src="dashboard (2).png" alt="">&nbsp; <span> Dashboard</span> </a></li>
+            <li><a href="index.php"><img src="reading-book (1).png" alt="">&nbsp;<span>Offers</span> </a> </li>
+            <li><a href="index.php"><img src="teacher2.png" alt="">&nbsp;<span>Clients</span>  </a></li>
+            <li><a href="indexreclamation.php"><img src="school.png" alt="">&nbsp;<span>Reclamations</span>  </a></li>
+            <li><a href="indexrep.php"><img src="school.png" alt="">&nbsp;<span>Réponses</span>  </a></li>
+            <li><a href="indexcat.php"><img src="school.png" alt="">&nbsp;<span>Catégories</span>  </a></li>
+            <li><a href="reservation_index.php"><img src="payment.png" alt="">&nbsp;<span>reservation</span>  </a></li>
+            <li><a href ="index_coupon.php"><img src="coupon.png" alt="">&nbsp;<span>code</span></a> </li>
+            <li><a href ="index_pub.php"><img src="settings.png" alt="">&nbsp;<span>publicite</span></a> </li>
+            <li><a href="index.php"><img src="help-web-button.png" alt="">&nbsp; <span>Help</span> </a></li>
+            <li><a href="index.php"><img src="settings.png" alt="">&nbsp;<span>Settings</span> </a> </li>
         </ul>
     </div>
 
@@ -49,7 +51,7 @@ $liste=$adC->triparcin() ;
                     <button type="submit"><img src="search.png" alt=""></button>
                 </div>
                 <div class="user">
-                    <a href="ajouter.php" class="btn">Ajouter Reclamation</a>
+                    <a href="ajouterReclamation.php" class="btn">Ajouter Reclamation</a>
                     <img src="notifications.png" alt="">
                     <div class="img-case">
                         <img src="user.png" alt="">
@@ -101,13 +103,13 @@ $liste=$adC->triparcin() ;
                     <div class="title">
                         <h2>recent reclamation</h2>
                         <a href="pdf.php" class="btn">PDF</a>
-                        <a href="index.php" class="btn">Non Trier</a>
+                        <a href="indexreclamation.php" class="btn">Non Trier</a>
                     </div>
                     
                     <table>
                     <tr>
             
-                <td><h5>nom</h5></td>
+                    <td><h5>nom</h5></td>
                 <td><h5>prenom</h5></td>
                 <td><h5>cin</h5></td>
                 <td><h5>email</h5></td>
@@ -117,11 +119,12 @@ $liste=$adC->triparcin() ;
             
                 <td><h5>Modifier</h5></td>
                 <td><h5>Supprimer</h5></td>
-                <td><h5>Details</h5></td>
                 <td><h5>Repondre</h5></td>
+                <td><h5>Mail</h5></td>
+                <td><h5>Details</h5></td>
             
              </tr>
-             <form method="get" action="index.php">
+             <form method="get" action="indexreclamation.php">
                     <input type="text" name="key" placeholder="chercher..." />
                     <input type="submit" value="chercher" placeholder="chercher..." class="btn btn-default btn-primary" />
 
@@ -139,21 +142,23 @@ $liste=$adC->triparcin() ;
                 <td><?php echo $adh['commentaire'];?></td>
             
                 
-                <td><a href="modifier.php?cin=<?php echo $adh['cin']; ?>" class="btn">modifier</a></td>
-                <td><a href="supprimer.php?cin=<?php echo $adh['cin']; ?>" class="btn">Supprimer</a></td>
+                <td><a href="modifierReclamation.php?cin=<?php echo $adh['cin']; ?>" class="btn">modifier</a></td>
+                <td><a href="supprimerReclamation.php?cin=<?php echo $adh['cin']; ?>" class="btn">Supprimer</a></td>
+                <td><a href="indexrep.php?cin=<?php echo $adh['cin']; ?>" class="btn">Répondre</a></td>
+                <td><a href="mailReclamation.php?cin=<?php echo $adh['cin']; ?>" class="btn">Mail</a></td>
     
                 <td>
                     <form method="POST"
-                    action="detail.php">
+                    action="detailReclamation.php">
     
-                    <input type="submit" value="voir Details" class="btn" >
+                    <input type="submit" value="Details" class="btn" >
                     <input type="hidden" name="cin" value="<?php echo $adh["cin"] ; ?>">
             </form>
             </td>
 
             
-            <td><a href="indexrep.php?cin=<?php echo $adh['cin']; ?>" class="btn">Répondre</a></td>
             
+
             </tr>
         <?php
             }

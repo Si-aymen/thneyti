@@ -1,6 +1,6 @@
 <?php
 require_once '../config.php';
-require_once '../models/categorie.php';
+require_once '../model/categorie.php';
 class categorieC{
 
 	/*afficher*/
@@ -68,7 +68,7 @@ $query->execute();
 
 public function detailCategorie($fcin)//k niclicki aa detail nchuf les info d'un adherent(recuperer un enrgst)
 {
-$sql="SELECT * FROM categorie where fcin=$fcin";
+$sql="SELECT * FROM categorie where fcin='$fcin'";
 $db=config::getConnexion();
 try{
 $query=$db->prepare($sql);

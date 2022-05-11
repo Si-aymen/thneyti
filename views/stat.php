@@ -1,134 +1,162 @@
 <?php  
-require_once "../config.php";
- $pdo= config::getConnexion() ;
-$result = $pdo->query("SELECT nomcateg, count(*) as number FROM categorie GROUP BY nomcateg");
- ?>  
-<!DOCTYPE html>
+ $connect = mysqli_connect("localhost", "root", "", "thneyti");  
+ $query = "SELECT depart, count(*) as number FROM moyen_de_transport GROUP BY depart";  
+ $result = mysqli_query($connect, $query);  
+ $query2 = "SELECT destination, count(*) as number FROM moyen_de_transport GROUP BY destination";  
+ $result2 = mysqli_query($connect, $query2);  
+ $query3 = "SELECT disponibilite, count(*) as number FROM moyen_de_transport GROUP BY disponibilite";  
+ $result3 = mysqli_query($connect, $query3);  
+?>  
+
+
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <title>THNEYTI Admin Panel</title>
+</head>
+<style>
+      div {
+        margin-bottom: 10px;
+        margin-right : 100px;
+      }
+      label {
+        display: inline-block;
+        width: 150px;
+        text-align: right;
+      }
+      form {
+  text-align: center;
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+}
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+table {
+  
+ top: 100px;
+  left : 500px;
+}
+    </style>
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
-           <script type="text/javascript">  
-       google.charts.load('current', {'packages':['corechart']});  
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
+           <script type="text/javascript"> 
+            
+            google.charts.load("current", {packages:["corechart"]});
            google.charts.setOnLoadCallback(drawChart);  
            function drawChart()  
            {  
                 var data = google.visualization.arrayToDataTable([  
-                          ['nomcateg', 'Number'],  
+                          ['depart', 'Number'],  
                           <?php  
-                          while($row = $result->fetch(PDO::FETCH_ASSOC))  
+                          while($row = mysqli_fetch_array($result))  
                           {  
-                               echo "['".$row["nomcateg"]."', ".$row["number"]."],";  
+                               echo "['".$row["depart"]."', ".$row["number"]."],";  
                           }  
                           ?>  
                      ]);  
                 var options = {  
-                      title: 'Pourcentage des Catégories',  
-                      is3D:true,  
+                      title: 'Percentage of depart',  
+                      //is3D:true,  
                       pieHole: 0.4  
                      };  
                 var chart = new google.visualization.PieChart(document.getElementById('piechart'));  
                 chart.draw(data, options);  
            }  
            </script>  
-</head>
+
+
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
+           <script type="text/javascript"> 
+            
+            google.charts.load("current", {packages:["corechart"]});
+           google.charts.setOnLoadCallback(drawChart);  
+           function drawChart()  
+           {  
+                var data = google.visualization.arrayToDataTable([  
+                          ['destination', 'Number'],  
+                          <?php  
+                          while($row = mysqli_fetch_array($result2))  
+                          {  
+                               echo "['".$row["destination"]."', ".$row["number"]."],";  
+                          }  
+                          ?>  
+                     ]);  
+                var options = {  
+                      title: 'Percentage of destination',  
+                      //is3D:true,  
+                      pieHole: 0.4  
+                     };  
+                var chart = new google.visualization.PieChart(document.getElementById('piechart2'));  
+                chart.draw(data, options);  
+           }  
+           </script> 
+
+
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
+           <script type="text/javascript"> 
+            
+            google.charts.load("current", {packages:["corechart"]});
+           google.charts.setOnLoadCallback(drawChart);  
+           function drawChart()  
+           {  
+                var data = google.visualization.arrayToDataTable([  
+                          ['disponibilite', 'Number'],  
+                          <?php  
+                          while($row = mysqli_fetch_array($result3))  
+                          {  
+                               echo "['".$row["disponibilite"]."', ".$row["number"]."],";  
+                          }  
+                          ?>  
+                     ]);  
+                var options = {  
+                      title: 'Percentage of dispo',  
+                      //is3D:true,  
+                      pieHole: 0.4  
+                     };  
+                var chart = new google.visualization.PieChart(document.getElementById('piechart3'));  
+                chart.draw(data, options);  
+           }  
+           </script> 
+
+
 
 <body>
-
-<div class="side-menu">
+    <div class="side-menu">
         <div class="brand-name">
             <h1>THNEYTI</h1>
         </div>
         <ul>
             <li><img src="dashboard (2).png" alt="">&nbsp; <span>Dashboard</span> </li>
             <li><img src="reading-book (1).png" alt="">&nbsp;<span>Offers</span> </li>
-            <li><a href="indexcat.php" ><img src="school.png" alt="">&nbsp;<span>Catégories</span></a> </li>
-            <li><a href="index.php" ><img src="school.png" alt="">&nbsp;<span>Reclamations</span></a> </li>
-            <li><a href="indexrep.php" ><img src="school.png" alt="">&nbsp;<span>Réponses</span></a> </li>
+            <li><img src="teacher2.png" alt="">&nbsp;<span>Clients</span> </li>
+            <li><img src="school.png" alt="">&nbsp;<span>Reclamations</span> </li>
             <li><img src="payment.png" alt="">&nbsp;<span>Income</span> </li>
-            <li><img src=".png" alt="">&nbsp;<span>code</span> </li>
             <li><img src="help-web-button.png" alt="">&nbsp; <span>Help</span></li>
             <li><img src="settings.png" alt="">&nbsp;<span>Settings</span> </li>
         </ul>
     </div>
 
-<div class="container">
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
 
+    <table>
+            <tr>
+                <th><div id="piechart" style="width: 800px; height: 400px;"></div>  </th>
+                <th><div id="piechart2" style="width: 800px; height: 400px;"></div>  </th>
 
-        <!-- Sidebar Start -->
-       
-        <!-- Sidebar End -->
+            </tr>
+            <tr>
+                <th><div id="piechart3" style="width: 800px; height: 400px;"></div>  </th>
+            </tr>
+        </table>   
 
-
-        <!-- Content Start -->
-        <div class="content">
-            <!-- Navbar Start -->
-            
-            <!-- Navbar End -->
-            <br /><br />  
-           <div style="width:900px;">  
-                <br />  
-                <div id="piechart" style="width: 1500px; height: 500px;position: relative;"></div>  
-           </div>  
-
-           <a href="indexcat.php" target="_parent">Retour vers la page d'accueil</a>
-          
-                    
-                                
-                                
-                              
-                               
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-    </div>
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/chart/chart.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-</body>
+    </body>
 
 </html>
+

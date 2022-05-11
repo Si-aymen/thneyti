@@ -17,7 +17,7 @@ $liste=$adC->afficherCategorie() ;
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
@@ -30,15 +30,17 @@ $liste=$adC->afficherCategorie() ;
             <h1>THNEYTI</h1>
         </div>
         <ul>
-            <li><img src="dashboard (2).png" alt="">&nbsp; <span>Dashboard</span> </li>
-            <li><img src="reading-book (1).png" alt="">&nbsp;<span>Offers</span> </li>
-            <li><a href="indexcat.php" ><img src="school.png" alt="">&nbsp;<span>Catégories</span></a> </li>
-            <li><a href="index.php" ><img src="school.png" alt="">&nbsp;<span>Reclamations</span></a> </li>
-            <li><a href="indexrep.php" ><img src="school.png" alt="">&nbsp;<span>Réponses</span></a> </li>
-            <li><img src="payment.png" alt="">&nbsp;<span>Income</span> </li>
-            <li><img src=".png" alt="">&nbsp;<span>code</span> </li>
-            <li><img src="help-web-button.png" alt="">&nbsp; <span>Help</span></li>
-            <li><img src="settings.png" alt="">&nbsp;<span>Settings</span> </li>
+            <li><a href="index.php"><img src="dashboard (2).png" alt="">&nbsp; <span> Dashboard</span> </a></li>
+            <li><a href="index.php"><img src="reading-book (1).png" alt="">&nbsp;<span>Offers</span> </a> </li>
+            <li><a href="index.php"><img src="teacher2.png" alt="">&nbsp;<span>Clients</span>  </a></li>
+            <li><a href="indexreclamation.php"><img src="school.png" alt="">&nbsp;<span>Reclamations</span>  </a></li>
+            <li><a href="indexrep.php"><img src="school.png" alt="">&nbsp;<span>Réponses</span>  </a></li>
+            <li><a href="indexcat.php"><img src="school.png" alt="">&nbsp;<span>Catégories</span>  </a></li>
+            <li><a href="reservation_index.php"><img src="payment.png" alt="">&nbsp;<span>reservation</span>  </a></li>
+            <li><a href ="index_coupon.php"><img src="coupon.png" alt="">&nbsp;<span>code</span></a> </li>
+            <li><a href ="index_pub.php"><img src="settings.png" alt="">&nbsp;<span>publicite</span></a> </li>
+            <li><a href="index.php"><img src="help-web-button.png" alt="">&nbsp; <span>Help</span> </a></li>
+            <li><a href="index.php"><img src="settings.png" alt="">&nbsp;<span>Settings</span> </a> </li>
         </ul>
     </div>
 
@@ -102,7 +104,7 @@ $liste=$adC->afficherCategorie() ;
                         <h2>recent categories</h2>
                         <a href="afficherCategorie.php" class="btn">View All</a>
                         <a href="tri_categorie.php" class="btn">Trier</a>
-                        <a href="stat.php" class="btn">Statistiques</a>
+                        <a href="statReclamation.php" class="btn">Statistiques</a>
                     </div>
                     
                     <table>
@@ -112,9 +114,6 @@ $liste=$adC->afficherCategorie() ;
                 <td><h5>description</h5></td>
                 <td><h5>cin</h5></td>
             
-                <td><h5>Modifier</h5></td>
-                <td><h5>Supprimer</h5></td>
-                <td><h5>Details</h5></td>
             
              </tr>
              <form method="get" action="indexcat.php">
@@ -132,17 +131,7 @@ $liste=$adC->afficherCategorie() ;
                 <td><?php echo $adh['fcin'];?></td>
             
                 
-                <td><a href="modifierCategorie.php?cin=<?php echo $adh['cin']; ?>" class="btn">Modifier</a></td>
-                <td><a href="supprimerCategorie.php?cin=<?php echo $adh['cin']; ?>" class="btn">Supprimer</a></td>
-    
-                <td>
-                    <form method="POST"
-                    action="detailrep.php">
-    
-                    <input type="submit" value="voir Details" class="btn" >
-                    <input type="hidden" name="cin" value="<?php echo $adh["cin"] ; ?>">
-            </form>
-            </td>
+                
 
             </tr>
         <?php

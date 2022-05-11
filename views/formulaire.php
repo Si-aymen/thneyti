@@ -19,7 +19,7 @@
             <li><img src="dashboard (2).png" alt="">&nbsp; <span>Dashboard</span> </li>
             <li><img src="reading-book (1).png" alt="">&nbsp;<span>Offers</span> </li>
             <li><a href="indexcat.php" ><img src="school.png" alt="">&nbsp;<span>Catégories</span></a> </li>
-            <li><a href="index.php" ><img src="school.png" alt="">&nbsp;<span>Reclamations</span></a> </li>
+            <li><a href="indexreclamation.php" ><img src="school.png" alt="">&nbsp;<span>Reclamations</span></a> </li>
             <li><a href="indexrep.php" ><img src="school.png" alt="">&nbsp;<span>Réponses</span></a> </li>
             <li><img src="payment.png" alt="">&nbsp;<span>Income</span> </li>
             <li><img src=".png" alt="">&nbsp;<span>code</span> </li>
@@ -102,7 +102,7 @@ $categorie=new categorie($_POST['nomcateg'],$_POST['commentaire'],$_POST['cin'])
 $categorieC=new categorieC();
 $categorieC->ajouter($categorie);
 
-header('Location: index.php');
+header('Location: indexreclamation.php');
 	
 }
 else
@@ -114,7 +114,7 @@ else
 ?>
 
         <br><br>
-        <a href="index.php" target="_parent">Retour vers la page d'accueil</a>
+        <a href="indexreclamation.php" target="_parent">Retour vers la page d'accueil</a>
     </div>
 </body>
 

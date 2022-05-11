@@ -1,6 +1,6 @@
 <?php
 require_once '../config.php';
-require_once '../models/coupon.php';
+require_once '../model/coupon.php';
 
 class couponC{
 
