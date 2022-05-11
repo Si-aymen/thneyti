@@ -46,11 +46,11 @@ if  (Zonk.includes(results[0])) SelectedItem="💥";
 
 if  (PS.includes(results[0])) SelectedItem="playstation 4 slim ";
 
-if  (Headset.includes(results[0])) SelectedItem="Headset Gaming ";
+if  (Headset.includes(results[0])) SelectedItem="porte-clés";
 
 if  (Drone.includes(results[0])) SelectedItem="Drone Mini ";
 
-if  (ROG.includes(results[0]))  SelectedItem="Laptop  Asus ROG ";
+if  (ROG.includes(results[0]))  SelectedItem="lavage";
 
 box.style.setProperty("transition","all ease 5s");
 box.style.transform  ="rotate(" + results[0] + "deg)";

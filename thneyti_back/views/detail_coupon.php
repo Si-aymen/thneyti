@@ -34,7 +34,7 @@ $ad=$adC->detail($_POST["idd"]);
 <h1>Detail coupon</h1>
 <ul>
 <tr>
-  <li><?php  echo $ad['idd'];?></li>
+  <li><?php  echo $ad['id'];?></li>
   <li><?php  echo $ad['date_deb'];?></li>
   <li><?php  echo $ad['date_experation'];?></li>
   <li><?php  echo $ad['taux_reduction'];?></li>

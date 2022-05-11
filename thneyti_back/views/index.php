@@ -109,7 +109,7 @@ $adC->getRowsNumber();
                     <div class="title">
                         <h2>recent coupon code</h2>
                         <a href="index.php" class="btn">View All</a>
-                        <a href="ajouter.php" class="btn" >Add coupon
+                        <a href="ajouter_coupon.php" class="btn" >Add coupon
                         
                     </a>
                     </div>

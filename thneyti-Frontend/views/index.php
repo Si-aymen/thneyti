@@ -104,7 +104,7 @@ $pub =new pub($_POST['id_publication'],$_POST['photo'],$_POST['date_debut'],$_PO
             
           </div>
           <div class="col-md-6">
-            <h1 class="booking_text">Book a City car to your destination in town</h1>
+           
             <div class="contact_bg">
             <div class="input_main">
               <div class="container">

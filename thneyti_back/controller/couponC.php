@@ -125,6 +125,21 @@ function recupererCommande($id){
         die('Erreur: '.$e->getMessage());
     }
 }
+
+function recupererUser($id){
+    $sql="SELECT * from  user where id=$id";
+    $db = config::getConnexion();
+    try{
+    $liste=$db->query($sql);
+    return $liste;
+    }
+    catch (Exception $e){
+        die('Erreur: '.$e->getMessage());
+    }
+}
+
+
+
 function tri_date(){
     $sql="SELECT * FROM coupon ORDER BY date_deb ASC ";
     $db = config::getConnexion();

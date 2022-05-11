@@ -167,7 +167,7 @@ alert('Vous avez ajouter un coupon');
         echo "<script> window.location.href='index_coupon.php'
         </script>";
        
-        $couponC->ajouter($coupon); 
+        $couponC->ajoutercoupon($coupon); 
 }?>  
 
 

@@ -81,7 +81,7 @@ if (isset($_GET['id']))
     ?>
 
 
-    <form name="modifier coupon"  method="POST" action="modifier.php?id=<?PHP echo $row['id']; ?>" >
+    <form name="modifier coupon"  method="POST" action="modifier_coupon.php?id=<?PHP echo $row['id']; ?>" >
 						
 					<div class="form-group">
 					<label>ID </label>
@@ -123,7 +123,7 @@ if (isset($_GET['id']))
             
 
 if (isset($_POST['modifier'])){
-	$coupon=new coupon($_POST['idcom_ini'],$_POST['date_deb'],$_POST['date_experation'],$_POST['taux_reduction'],$_POST['code_coupon']);
+	$coupon=new coupon($_POST['idcom_ini'],$_POST['date_deb'],$_POST['date_experation'],$_POST['taux_reduction'],$_POST['code_coupon'],$_POST['etat']);
 	$couponC->modifier($coupon,$_POST['idcom_ini']);
 	header('Location: index_coupon.php');
 } ob_end_flush();?>

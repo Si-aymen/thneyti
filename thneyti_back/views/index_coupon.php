@@ -19,6 +19,7 @@ $liste=$adC->affichercoupon() ;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    
     <title>THNEYTI Admin Panel</title>
 </head>
 
@@ -57,15 +58,7 @@ $liste=$adC->affichercoupon() ;
         </div>
         <div class="content">
             <div class="cards">
-                <div class="card">
-                    <div class="box">
-                        <h1>194</h1>
-                        <h3>Offers</h3>
-                    </div>
-                    <div class="icon-case">
-                        <img src="students.png" alt="">
-                    </div>
-                </div>
+              
                 <div class="card">
                     <div class="box">
                         <h1>
@@ -83,24 +76,8 @@ $adC->getRowsNumber();
                         <img src="teachers.png" alt="">
                     </div>
                 </div>
-                <div class="card">
-                    <div class="box">
-                        <h1>5</h1>
-                        <h3>Reclamations</h3>
-                    </div>
-                    <div class="icon-case">
-                        <img src="schools.png" alt="">
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="box">
-                        <h1>35000</h1>
-                        <h3>Income</h3>
-                    </div>
-                    <div class="icon-case">
-                        <img src="income.png" alt="">
-                    </div>
-                </div>
+               
+               
             </div>
             <!-- <a href="tri_date.php">Tri Par date</a> -->
             
@@ -110,7 +87,11 @@ $adC->getRowsNumber();
                         <h2>recent coupon code</h2>
                         <a href="index_coupon.php" class="btn">View All</a>
                         
-                        <a href="ajouter.php" class="btn" >Add coupon</a>
+                        <a href="ajouter_coupon.php" class="btn" >Add coupon</a>
+                       
+                        <form method="POST" action="pdf.php" class="btn">
+                       <input type="submit" name="create_pdf" value="PDF">
+                     </form>
                     </div>
                     
                     <table>
@@ -125,7 +106,7 @@ $adC->getRowsNumber();
             <td><h5>Modifier</h5></td>
             <td><h5>Supprimer</h5></td>
             <td><h5>Details</h5></td>
-            <td><h5>mail</h5></td>
+         
         </tr>
         <form method="get" action="index_coupon.php">
                     <input type="text" name="key" placeholder="chercher..." />
@@ -135,26 +116,31 @@ $adC->getRowsNumber();
         <?php
             foreach ($liste as  $adh){
         ?>
-            <tr>
+            <tr>        
                 <td><?php echo $adh['id'];?></td>
                 <td><?php echo $adh['date_deb'];?></td>
                 <td><?php echo $adh['date_experation'];?></td>
                 <td><?php echo $adh['taux_reduction'];?></td>
                 <td><?php echo $adh['code_coupon'];?></td>
                 <td><?php echo $adh['etat'];?></td>
-                <td><a href="modifier.php?id=<?php echo $adh['id']; ?>" class="btn">modifier</a></td>
-                <td><a href="supprimer.php?id=<?php echo $adh['id']; ?>" class="btn">Supprimer</a></td>
+                <td><a href="modifier_coupon.php?id=<?php echo $adh['id']; ?>" class="btn">modifier</a></td>
+                <td><a href="supprimer_coupon.php?id=<?php echo $adh['id']; ?>" class="btn">Supprimer</a></td>
                 
                 
+                <td>
+                    <form method="POST"
+                    action="detail_coupon.php">
     
+                    <input type="submit" value="Details" class="btn" >
+                    <input type="hidden" name="id" value="<?php echo $adh["id"] ; ?>">
+            </form>
+            </td>
                 <td>
                 <div>
-            <form method="POST" action="pdf.php">
-                       <input type="submit" name="create_pdf" value="PDF">
-                     </form>
+            
                      </div>
             </td>
-            <td><a href="mail.php?id=<?php echo $adh['id']; ?>" class="btn">mail</a></td>
+           
             </tr>
             
         <?php
@@ -170,7 +156,6 @@ $adC->getRowsNumber();
             </div>
         </div>
     </div>
-
 
     
     
