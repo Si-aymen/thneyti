@@ -1,5 +1,5 @@
 <?php
-require '../config.php';
+require_once '../config.php';
 
 class reservationc{
 
@@ -76,14 +76,7 @@ class reservationc{
           }
 
 
-          public function getRowsNumber() {
-            $sql = "SELECT COUNT(*) FROM ress";
-            $db = config::getConnexion();
-            $stmt = $db->query($sql);
-            $count = $stmt->fetchColumn();
-            return $count;
-            //print $count;
-        }
+      
         
              
         
@@ -127,7 +120,14 @@ class reservationc{
                 
             }
 
-
+            public function getRowsR() {
+                $sql = "SELECT COUNT(*) FROM ress";
+                $db = config::getConnexion();
+                $stmt = $db->query($sql);
+                $count = $stmt->fetchColumn();
+               
+                print $count;
+            }
             
 
 

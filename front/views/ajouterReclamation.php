@@ -19,11 +19,11 @@ $categorieC=new categorieC();
 $categorieC->ajouter($categorie);
 
 header('Location: index_home.php');
-	
+
 }
 else
 {
-	
+
 }
 ?>
 
@@ -99,29 +99,30 @@ background-color: #000000;
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
-                    <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+                    <div class="logo"><a href="index_home.php"><img src="images/logo.png"></a></div>
                 </div>
                 <div class="col-sm-6 col-lg-9">
-                    <div class="menu_text">
-                        <ul>
-                            <li><a href="index_home.php">Home</a></li>
-                            <li><a href="../index.php">car</a></li>
-                            <li><a href="../index.php#booking">Booking</a></li>
-                            <li><a href="../index.php#contact">Contact Us</a></li>
-                            <li><a href="../index.php#about">support</a></li>
-                            <li><a href="#"><img src="images/search-icon.png"></a></li>
-                            <div id="myNav" class="overlay">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <div class="overlay-content">
-                  <a href="index.html">Home</a>
-                  <a href="#taxis">Car</a>
-                  <a href="#booking">Booking</a>
-                  <a href="#contact">Contact Us</a>
-                  <a href="#about">Support</a>
-                </div>
-                </div>
-                <span  style="font-size:33px;cursor:pointer; color: #ffffff;" onclick="openNav()"><img src="images/toggle-menu.png" class="toggle_menu"></span>
-                </div>
+									<div class="menu_text">
+											<ul>
+													<li><a href="../index.php">Car</a></li>
+													<li><a href="afficher_moy.php">moyens de transport </a></li>
+													<li><a href="transportalternatif.php">transport +</a></li>
+													<li><a href="ajouterReclamation.php">Support</a></li>
+
+
+													<div id="myNav" class="overlay">
+							<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+							<div class="overlay-content">
+								<a href="connexion.php">sign in</a>
+								<a href="ajouter.php">sign up</a>
+
+
+
+
+							</div>
+							</div>
+							<span  style="font-size:33px;cursor:pointer; color: #ffffff;" onclick="openNav()"><img src="images/toggle-menu.png" class="toggle_menu"></span>
+							</div>
                 </li>
                         </ul>
                     </div>
@@ -149,7 +150,7 @@ background-color: #000000;
 
 
                 <form method="post">
-        
+
             <legend>Veuillez remplir le formulaire</legend>
 
 
@@ -176,9 +177,9 @@ background-color: #000000;
 
             <label>E-Mail</label>
             <input type="text" name="email" id="email" autocomplete="off">
-            
+
             <br><br>
-            
+
             <br><label>De quelle province étes-vous ?</label>
             <input type="text" name="province" id="province" autocomplete="off">
 
@@ -196,8 +197,8 @@ background-color: #000000;
             <textarea rows="10" cols="50" id="commentaire" name="commentaire"></textarea><br>
 
             <br><button type="submit" class="btn btn-primary" name="submit">Submit</button><br>
-           
-           
+
+
         </form>
                   </div>
                   </div>

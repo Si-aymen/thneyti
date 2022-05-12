@@ -156,7 +156,7 @@ if (isset($_POST['modifier'])){
 
 
   
-	header("Location: http://localhost/2A14/intégration/views/mail_coupon.php?cin=$cin");
+	header("Location: http://localhost:7882/2A14/thneyti-reclamation/back/views/mail_coupon.php?cin=$cin");
 } ob_end_flush();?>
 </div>
                       <div class="modal-footer d-flex justify-content-center">

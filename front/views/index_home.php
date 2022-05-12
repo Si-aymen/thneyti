@@ -1,15 +1,15 @@
-<?php 
+<?php
 require_once '../controller/pubC.php';
 require_once '../model/pub.php';
 
-$pubC =new pubC(); 
+$pubC =new pubC();
 
 $liste =$pubC->affichercoupon();
-$s=0;  
+$s=0;
 
 if(isset($_POST['id_publication'])&&
-isset($_POST['photo'])&& 
-isset($_POST['date_debut']) && 
+isset($_POST['photo'])&&
+isset($_POST['date_debut']) &&
 isset($_POST['date_fin'])&&
 isset($_POST['description']))
 
@@ -34,7 +34,7 @@ $pub =new pub($_POST['id_publication'],$_POST['photo'],$_POST['date_debut'],$_PO
 <title>THNEYTI</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
-<meta name="author" content="">	
+<meta name="author" content="">
 <!-- bootstrap css -->
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <!-- style css -->
@@ -47,42 +47,55 @@ $pub =new pub($_POST['id_publication'],$_POST['photo'],$_POST['date_debut'],$_PO
 <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
 <!-- Tweaks for older IEs-->
 <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-<!-- owl stylesheets --> 
+<!-- owl stylesheets -->
 <link rel="stylesheet" href="css/owl.carousel.min.css">
 <link rel="stylesheet" href="css/owl.theme.default.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 
 </head>
 <body>
-  
+
 	<!--header section start -->
     <div  class="header_section">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
-                    <div class="logo"><img src="images/logo.png"></a></div>
+                    <div class="logo"><a href="index_home.php"><img src="images/logo.png"></a></div>
                 </div>
                 <div class="col-sm-6 col-lg-9">
-                    <div class="menu_text">
-                        <ul>
-                            <li><a href="index_home.php">Home</a></li>                                                    
-                            <li><a href="../index.php">car</a></li>
-                            <li><a href="../index.php#booking">Booking</a></li>
-                            <li><a href="../index.php#contact">Contact Us</a></li>
-                            <li><a href="ajouterReclamation.php">support</a></li>
-                            <li><a href="#"><img src="images/search-icon.png"></a></li>
-                            <div id="myNav" class="overlay">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <div class="overlay-content">
-                  <a href="index_home.php">Home</a>
-                  <a href="#taxis">car</a>
-                  <a href="#booking">Booking</a>
-                  <a href="#contact">Contact Us</a>
-                  <a href="#about">Support</a>
-                </div>
-                </div>
-                <span  style="font-size:33px;cursor:pointer; color: #ffffff;" onclick="openNav()"><img src="images/toggle-menu.png" class="toggle_menu"></span>
-                </div>  
+                  <div class="menu_text">
+                  <div id="google_translate_element"></div>
+<script type="text/javascript">
+function googleTranslateElementInit() 
+{
+new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+
+
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+              
+                      <ul>
+                          <li><a href="connexion.php">Car</a></li>
+                          <li><a href="connexion.php">moyens de transport </a></li>
+                          <li><a href="connexion.php">transport +</a></li>
+                          <li><a href="connexion.php"  >Support</a></li>
+
+
+                         <div id="myNav" class="overlay">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav() " >&times;</a>
+              <div class="overlay-content">
+                <a href="connexion.php">sign in</a>
+                <a href="ajouter.php">sign up</a> 
+               
+              
+
+
+              </div>
+              </div>
+              <span  style="font-size:33px;cursor:pointer; color: #ffffff;" onclick="openNav()"><img src="images/toggle-menu.png" class="toggle_menu"></span>
+              </div>
                 </li>
                         </ul>
                     </div>
@@ -93,40 +106,41 @@ $pub =new pub($_POST['id_publication'],$_POST['photo'],$_POST['date_debut'],$_PO
     <!-- banner section start -->
     <div class="banner_section">
       <div class="container-fluid">
-      
+
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="row">
           <div class="col-md-6">
-            
-            
+
+
             <div class="image_1"><img src="images/image3.png"></div>
-            
+
           </div>
           <div class="col-md-6">
-           
+       
             <div class="contact_bg">
             <div class="input_main">
+           
               <div class="container">
               <?php
             foreach ($liste as  $adh){
         ?>
                   <h2 class="request_text"> <?php echo $adh['description'];?></h2>
-                  
-                  
+
+
                 <form action="/action_page.php">
-                
+                <div class="book_bt"><a href="connexion.php">play NOW</a></div>
                   </form>
-                  </div> 
                   </div>
-               
+                  </div>
+
           </div>
           </div>
         </div>
     </div>
- 
-    
-    
+
+
+
   </div>
   <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
     <i class="fa fa-angle-left"></i></a>
@@ -136,20 +150,20 @@ $pub =new pub($_POST['id_publication'],$_POST['photo'],$_POST['date_debut'],$_PO
   </a>
   </a>
 </div>
-        
+
       </div>
     </div>
     <!-- banner section end -->
     <!-- our taxis section start -->
-    
-           
-          
+
+
+
             </div>
           </div>
         </div>
       </div>
     </div>
-    
+
     <!-- our taxis section end -->
     <!-- why ride section start -->
     <div id="booking" class="ride_section layout_padding">
@@ -168,7 +182,7 @@ $pub =new pub($_POST['id_publication'],$_POST['photo'],$_POST['date_debut'],$_PO
           <div class="col-sm-8">
             <h1 class="cabe_text">THNEYTI for Every Pocket</h1>
             <p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as It is a long established fact that a reader will be distracted by the readable c</p>
-            <div class="book_bt"><a href="#">BOOK NOW</a></div>
+            <div class="book_bt"><a href="connexion.php">BOOK NOW</a></div>
           </div>
         </div>
       </div>
@@ -177,7 +191,7 @@ $pub =new pub($_POST['id_publication'],$_POST['photo'],$_POST['date_debut'],$_PO
           <div class="col-sm-8">
             <h1 class="secure_text">Secure and Safer Rides</h1>
             <p class="long_text_2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as It is a long established fact that a reader will be distracted by the readable c</p>
-            <div class="book_bt_2"><a href="#">BOOK NOW</a></div>
+            <div class="book_bt_2"><a href="connexion.php">BOOK NOW</a></div>
           </div>
           <div class="col-sm-4">
             <div class="image_3"><img src="images/img-4.png"></div>
@@ -192,7 +206,7 @@ $pub =new pub($_POST['id_publication'],$_POST['photo'],$_POST['date_debut'],$_PO
           <div class="col-sm-8">
             <h1 class="cabe_text">THNEYTI for Every Pocket</h1>
             <p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as It is a long established fact that a reader will be distracted by the readable c</p>
-            <div class="book_bt"><a href="#">BOOK NOW</a></div>
+            <div class="book_bt"><a href="connexion.php">BOOK NOW</a></div>
           </div>
         </div>
       </div>
@@ -201,7 +215,9 @@ $pub =new pub($_POST['id_publication'],$_POST['photo'],$_POST['date_debut'],$_PO
           <div class="col-sm-8">
             <h1 class="secure_text">Secure and Safer Rides</h1>
             <p class="long_text_2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as It is a long established fact that a reader will be distracted by the readable c</p>
-            <div class="book_bt_2"><a href="#">BOOK NOW</a></div>
+            <div class="book_bt_2"><a href="ajouteconnexionr_moy.php">BOOK NOW</a></div>
+            
+           
           </div>
           <div class="col-sm-4">
             <div class="image_3"><img src="images/img-5.png"></div>
@@ -229,7 +245,7 @@ $pub =new pub($_POST['id_publication'],$_POST['photo'],$_POST['date_debut'],$_PO
     <!-- download section end -->
   <!-- section footer start -->
     <div class="section_footer ">
-      <div class="container"> 
+      <div class="container">
           <div class="footer_section_2">
             <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-3">
@@ -249,7 +265,7 @@ $pub =new pub($_POST['id_publication'],$_POST['photo'],$_POST['date_debut'],$_PO
                 <div class="image-icon"><img src="images/fb-icon.png"><span class="fb_text"><a href="#">Facebook</a></span></div>
                 <div class="image-icon"><img src="images/twitter-icon.png"><span class="fb_text"><a href="#">Twitter</a></span></div>
                 <div class="image-icon"><img src="images/in-icon.png"><span class="fb_text"><a href="#">Linkedin</a></span></div>
-                <div class="image-icon"><img src="images/youtube-icon.png"><span class="fb_text"><a href="#">Youtube</a></span></div>            
+                <div class="image-icon"><img src="images/youtube-icon.png"><span class="fb_text"><a href="#">Youtube</a></span></div>
                 <div class="image-icon"><img src="images/instagram-icon.png"><span class="fb_text"><a href="#">Instagram</a></span></div>
                 </div>
           <div class="col-sm-6 col-md-6 col-lg-3">
@@ -279,7 +295,7 @@ $pub =new pub($_POST['id_publication'],$_POST['photo'],$_POST['date_debut'],$_PO
     <!-- sidebar -->
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/custom.js"></script>
-    <!-- javascript --> 
+    <!-- javascript -->
     <script src="js/owl.carousel.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
     <script>
@@ -288,16 +304,16 @@ $pub =new pub($_POST['id_publication'],$_POST['photo'],$_POST['date_debut'],$_PO
     openEffect: "none",
     closeEffect: "none"
     });
-       
+
     $(".zoom").hover(function(){
-         
+
     $(this).addClass('transition');
     }, function(){
-         
+
     $(this).removeClass('transition');
     });
     });
-    </script> 
+    </script>
     <script>
     function openNav() {
     document.getElementById("myNav").style.width = "100%";
@@ -306,10 +322,9 @@ $pub =new pub($_POST['id_publication'],$_POST['photo'],$_POST['date_debut'],$_PO
     function closeNav() {
    document.getElementById("myNav").style.width = "0%";
    }
-</script>   
+</script>
 <?php
             }
         ?>
 </body>
 </html>
-  

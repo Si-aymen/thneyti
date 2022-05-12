@@ -1,15 +1,15 @@
-<?php 
+<?php
 include 'controller/Moyen_de_transportc.php';
 require_once 'model/Moyen_de_transport.php';
 
-$moyen_de_transportc =new moyen_de_transportc(); 
+$moyen_de_transportc =new moyen_de_transportc();
 
 $liste =$moyen_de_transportc->afficher();
-$s=0;  
+$s=0;
 
 if(isset($_POST['id_moy'])&&
-isset($_POST['prix'])&& 
-isset($_POST['disponibilite']) && 
+isset($_POST['prix'])&&
+isset($_POST['disponibilite']) &&
 isset($_POST['depart'])&&
 isset($_POST['destination'])&&
 isset($_POST['date_depart'])&&
@@ -36,7 +36,7 @@ $moyen_de_transport =new moyen_de_transport($_POST['id_moy'],$_POST['prix'],$_PO
 <title>THNEYTI</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
-<meta name="author" content="">	
+<meta name="author" content="">
 <!-- bootstrap css -->
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <!-- style css -->
@@ -49,7 +49,7 @@ $moyen_de_transport =new moyen_de_transport($_POST['id_moy'],$_POST['prix'],$_PO
 <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
 <!-- Tweaks for older IEs-->
 <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-<!-- owl stylesheets --> 
+<!-- owl stylesheets -->
 <link rel="stylesheet" href="css/owl.carousel.min.css">
 <link rel="stylesheet" href="css/owl.theme.default.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
@@ -61,29 +61,35 @@ $moyen_de_transport =new moyen_de_transport($_POST['id_moy'],$_POST['prix'],$_PO
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
-                    <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+                    <div class="logo"><a href="views/index_home0.php"><img src="images/logo.png"></a></div>
                 </div>
                 <div class="col-sm-6 col-lg-9">
-                    <div class="menu_text">
-                        <ul>
-                            <li><a href="views/index_home.php">Home</a></li>                                                    
-                            <li><a href="#taxis">car</a></li>
-                            <li><a href="#booking">Booking</a></li>
-                            <li><a href="#contact">Contact Us</a></li>
-                            <li><a href="views/ajouterReclamation.php">support</a></li>
-                            <li><a href="#"><img src="images/search-icon.png"></a></li>
-                            <div id="myNav" class="overlay">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <div class="overlay-content">
-                  <a href="index_home.php">Home</a>
-                  <a href="#taxis">car</a>
-                  <a href="#booking">Booking</a>
-                  <a href="#contact">Contact Us</a>
-                  <a href="#about">Support</a>
+                  <div class="menu_text">
+                      <ul>
+                          <li><a href="index.php">Car</a></li>
+                          <li><a href="views/afficher_moy.php">moyens de transport </a></li>
+                          <li><a href="views/transportalternatif.php">transport +</a></li>
+                          <li><a href="views/ajouterReclamation.php">Support</a></li>
+
+
+                          <div id="myNav" class="overlay">
+           
+           <a href="javascript:void(0)" class="closebtn" onclick="closeNav() " >&times;</a>
+           <div class="overlay-content" >
+           
+            <div  class="img-case ">
+            
+                   <a href="../back/views/index.php" > admin</a>
+                   <a href="views/deconnexion.php" > sign out </a>
                 </div>
-                </div>
-                <span  style="font-size:33px;cursor:pointer; color: #ffffff;" onclick="openNav()"><img src="images/toggle-menu.png" class="toggle_menu"></span>
-                </div>  
+               
+              
+
+
+              </div>
+              </div>
+              <span  style="font-size:33px;cursor:pointer; color: #ffffff;" onclick="openNav()"><img src="images/toggle-menu.png" class="toggle_menu"></span>
+              </div>
                 </li>
                         </ul>
                     </div>
@@ -122,7 +128,7 @@ $moyen_de_transport =new moyen_de_transport($_POST['id_moy'],$_POST['prix'],$_PO
                   <input type="text" class="email-bt" placeholder="WHEN" name="Email">
                 </div>
                   </form>
-                  </div> 
+                  </div>
                   </div>
                 <div class="send_bt"><a href="#">SEARCH</a></div>
           </div>
@@ -155,7 +161,7 @@ $moyen_de_transport =new moyen_de_transport($_POST['id_moy'],$_POST['prix'],$_PO
                   <input type="text" class="email-bt" placeholder="WHEN" name="Email">
                 </div>
                   </form>
-                  </div> 
+                  </div>
                   </div>
                 <div class="send_bt"><a href="#">SEARCH</a></div>
           </div>
@@ -188,7 +194,7 @@ $moyen_de_transport =new moyen_de_transport($_POST['id_moy'],$_POST['prix'],$_PO
                   <input type="text" class="email-bt" placeholder="WHEN" name="Email">
                 </div>
                   </form>
-                  </div> 
+                  </div>
                   </div>
                 <div class="send_bt"><a href="#">SEARCH</a></div>
           </div>
@@ -204,7 +210,7 @@ $moyen_de_transport =new moyen_de_transport($_POST['id_moy'],$_POST['prix'],$_PO
   </a>
   </a>
 </div>
-        
+
       </div>
     </div>
     <!-- banner section end -->
@@ -222,7 +228,7 @@ $moyen_de_transport =new moyen_de_transport($_POST['id_moy'],$_POST['prix'],$_PO
               <div class="taxi_main">
                 <div class="round_1">01</div>
                 <h2 class="carol_text">CAR 1</h2>
-                <p class="reader_text"><?php echo $adh['depart'];?> ---><?php echo $adh['destination'];?> <br> 
+                <p class="reader_text"><?php echo $adh['depart'];?> ---><?php echo $adh['destination'];?> <br>
                   <?php echo $adh['date_depart'];?></p>
                   <div class="images_2"><a href="details_moy.php?id_moy=<?php echo $adh['id_moy']; ?>"><img src="images/img-2.png"></a></div>
               </div>
@@ -235,7 +241,7 @@ $moyen_de_transport =new moyen_de_transport($_POST['id_moy'],$_POST['prix'],$_PO
               <div class="taxi_main">
                 <div class="round_1">02</div>
                 <h2 class="carol_text">CAR 2</h2>
-                <p class="reader_text">act that a reader will be<br> 
+                <p class="reader_text">act that a reader will be<br>
                 distracted </p>
                 <div class="images_2"><img src="images/img-2.png"></a></div>
               </div>
@@ -244,7 +250,7 @@ $moyen_de_transport =new moyen_de_transport($_POST['id_moy'],$_POST['prix'],$_PO
               <div class="taxi_main">
                 <div class="round_1">03</div>
                 <h2 class="carol_text">CAR 3</h2>
-                <p class="reader_text">act that a reader will be<br> 
+                <p class="reader_text">act that a reader will be<br>
                 distracted </p>
                 <div class="images_2"><img src="images/img-2.png"></a></div>
               </div>
@@ -332,7 +338,7 @@ $moyen_de_transport =new moyen_de_transport($_POST['id_moy'],$_POST['prix'],$_PO
     <!-- download section end -->
   <!-- section footer start -->
     <div class="section_footer ">
-      <div class="container"> 
+      <div class="container">
           <div class="footer_section_2">
             <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-3">
@@ -352,7 +358,7 @@ $moyen_de_transport =new moyen_de_transport($_POST['id_moy'],$_POST['prix'],$_PO
                 <div class="image-icon"><img src="images/fb-icon.png"><span class="fb_text"><a href="#">Facebook</a></span></div>
                 <div class="image-icon"><img src="images/twitter-icon.png"><span class="fb_text"><a href="#">Twitter</a></span></div>
                 <div class="image-icon"><img src="images/in-icon.png"><span class="fb_text"><a href="#">Linkedin</a></span></div>
-                <div class="image-icon"><img src="images/youtube-icon.png"><span class="fb_text"><a href="#">Youtube</a></span></div>            
+                <div class="image-icon"><img src="images/youtube-icon.png"><span class="fb_text"><a href="#">Youtube</a></span></div>
                 <div class="image-icon"><img src="images/instagram-icon.png"><span class="fb_text"><a href="#">Instagram</a></span></div>
                 </div>
           <div class="col-sm-6 col-md-6 col-lg-3">
@@ -382,7 +388,7 @@ $moyen_de_transport =new moyen_de_transport($_POST['id_moy'],$_POST['prix'],$_PO
     <!-- sidebar -->
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/custom.js"></script>
-    <!-- javascript --> 
+    <!-- javascript -->
     <script src="js/owl.carousel.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
     <script>
@@ -391,16 +397,16 @@ $moyen_de_transport =new moyen_de_transport($_POST['id_moy'],$_POST['prix'],$_PO
     openEffect: "none",
     closeEffect: "none"
     });
-       
+
     $(".zoom").hover(function(){
-         
+
     $(this).addClass('transition');
     }, function(){
-         
+
     $(this).removeClass('transition');
     });
     });
-    </script> 
+    </script>
     <script>
     function openNav() {
     document.getElementById("myNav").style.width = "100%";
@@ -409,6 +415,6 @@ $moyen_de_transport =new moyen_de_transport($_POST['id_moy'],$_POST['prix'],$_PO
     function closeNav() {
    document.getElementById("myNav").style.width = "0%";
    }
-</script>   
+</script>
 </body>
 </html>

@@ -33,18 +33,17 @@ $liste=$adC->affichercoupon() ;
         <div class="brand-name">
             <h1>THNEYTI</h1>
         </div>
-        <ul>
-            <li><a href="index.php"><img src="dashboard (2).png" alt="">&nbsp; <span> Dashboard</span> </a></li>
-            <li><a href="index.php"><img src="reading-book (1).png" alt="">&nbsp;<span>Offers</span> </a> </li>
+        <ul> <li><a href="dashboard.php"><img src="dashboard (2).png" alt="">&nbsp; <span> Dashboard</span> </a></li>
+            <li><a href="offre.php"><img src="reading-book (1).png" alt="">&nbsp;<span>Offers</span> </a> </li>
             <li><a href="index.php"><img src="teacher2.png" alt="">&nbsp;<span>Clients</span>  </a></li>
             <li><a href="indexreclamation.php"><img src="school.png" alt="">&nbsp;<span>Reclamations</span>  </a></li>
             <li><a href="indexrep.php"><img src="school.png" alt="">&nbsp;<span>Réponses</span>  </a></li>
             <li><a href="indexcat.php"><img src="school.png" alt="">&nbsp;<span>Catégories</span>  </a></li>
             <li><a href="reservation_index.php"><img src="payment.png" alt="">&nbsp;<span>reservation</span>  </a></li>
+            <li><a href="forum.php"><img src="info.png" alt="">&nbsp;<span>forum</span>  </a></li>
             <li><a href ="index_coupon.php"><img src="coupon.png" alt="">&nbsp;<span>code</span></a> </li>
-            <li><a href ="index_pub.php"><img src="settings.png" alt="">&nbsp;<span>publicite</span></a> </li>
-            <li><a href="index.php"><img src="help-web-button.png" alt="">&nbsp; <span>Help</span> </a></li>
-            <li><a href="index.php"><img src="settings.png" alt="">&nbsp;<span>Settings</span> </a> </li>
+            <li><a href ="index_pub.php"><img src="settings.png" alt="">&nbsp;<span>publicite</span></a> </li>       
+            <li><a href="indexticket.php"><img src="settings.png" alt="">&nbsp;<span>Commande</span> </a> </li>
         </ul>
     </div>
 
@@ -60,37 +59,36 @@ new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_el
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
    
+<form method="get" action="index.php">
+                <div class="search">
+                    <input type="text" name="key" placeholder="Search..">
+                    <button type="submit"><img src="search.png" alt=""></button>
+                </div>
+                </form>
+               
                 <div class="user">
+                <div class="fb-share-button" data-href="http://localhost/WEB/Utilisateur/back/views/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A8000%2FAffichepofro&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"><img src="notifications.png" alt=""></a></div>
+
                     
-                   
-                    <img src="notifications.png" alt="">
                     <div class="img-case">
-                        <img src="user.jpg" alt="">
+                        <a href="../../front/index.php  " >
+                        <img src="user.png" alt="">
+                        </a>
+                        
                     </div>
                 </div>
             </div>
         </div>
+        
+                    
+           
+                
+           
+        
         <div class="content">
             <div class="cards">
               
-                <div class="card">
-                    <div class="box">
-                        <h1>
-
-
-                        <?php
-$adC->getRowsNumber();
-
-
-?>
-                        </h1>
-                        <h3>offre coupon </h3>
-                    </div>
-                    <div class="icon-case">
-                        <img src="teachers.png" alt="">
-                    </div>
-                </div>
-               
+                
                
             </div>
             <!-- <a href="tri_date.php">Tri Par date</a> -->

@@ -53,7 +53,7 @@ $sql="SELECT * from  coupon where code_coupon='$coupon'";
 $couponC=new couponC();
 $new_etat=1;
 $coupon1=new coupon($id,$date_deb,$date_experation,$taux_reduction,$code_coupon,$new_etat);
-  $couponC->modifier($coupon1,$id);
+  $couponC->modifiercoupon($coupon1,$id);
 
 
 

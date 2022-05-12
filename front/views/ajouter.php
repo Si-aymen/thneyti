@@ -1,4 +1,4 @@
-<?php 
+<?php
 include '../controller/userC.php';
 //include '../model/user.php';
 // ---QUFORM-----
@@ -6,7 +6,7 @@ include '../controller/userC.php';
 
 $userC=new userC();
 
-$s=0;  
+$s=0;
 if(isset($_POST['nom'])&&
 isset($_POST['prenom'])&&
 isset($_POST['date_de_naissance'])&&
@@ -19,7 +19,7 @@ isset($_POST['tel'])
 )
 
 {
-    $user=new user( 
+    $user=new user(
     $_POST['nom'],
     $_POST['prenom'],
     $_POST['date_de_naissance'],
@@ -106,30 +106,30 @@ background-color: #000000;
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
-                    <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+                    <div class="logo"><a href="index_home.php"><img src="images/logo.png"></a></div>
                 </div>
                 <div class="col-sm-6 col-lg-9">
-                    <div class="menu_text">
-                        <ul>
-                            <li><a href="../index.html">Home</a></li>
-                            <li><a href="#taxis">Car</a></li>
-                            <li><a href="#booking">Booking</a></li>
-                            <li><a href="#contact">Contact Us</a></li>
-                            <li><a href="#about">Support</a></li>
-                            <li><a href="#"><img src="images/search-icon.png"></a></li>
-                            <div id="myNav" class="overlay">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <div class="overlay-content">
-                  <a href="index.html">Home</a>
-                  <a href="#taxis">Car</a>
-                  <a href="#booking">Booking</a>
-                  <a href="#contact">Contact Us</a>
-                  <a href="#about">Support</a>
-                  <a href="connexion.php">login</a>
-                </div>
-                </div>
-                <span  style="font-size:33px;cursor:pointer; color: #ffffff;" onclick="openNav()"><img src="images/toggle-menu.png" class="toggle_menu"></span>
-                </div>
+                  <div class="menu_text">
+                      <ul>
+                          <li><a href="../index.php">Car</a></li>
+                          <li><a href="afficher_moy.php">moyens de transport </a></li>
+                          <li><a href="transportalternatif.php">transport +</a></li>
+                          <li><a href="ajouterReclamation.php">Support</a></li>
+
+
+                          <div id="myNav" class="overlay">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <div class="overlay-content">
+                <a href="connexion.php">sign in</a>
+                <a href="ajouter.php">sign up</a>
+
+
+
+
+              </div>
+              </div>
+              <span  style="font-size:33px;cursor:pointer; color: #ffffff;" onclick="openNav()"><img src="images/toggle-menu.png" class="toggle_menu"></span>
+              </div>
                 </li>
                         </ul>
                     </div>
@@ -173,7 +173,7 @@ background-color: #000000;
                             month = date.getMonth() + 1;
                             day = date.getDate();
                             document.getElementById("current_date").innerHTML = month + "/" + day + "/" + year;
-                            </script>   
+                            </script>
                   <input type="date" class="email-bt" id="date_de_naissance" name="date_de_naissance" min="1923-12-12" max="current_date"required>
                 </div>
                 <div class="form-group">
@@ -183,23 +183,23 @@ background-color: #000000;
                 <div class="form-group">
                   <label>Mot de passe (8 caracteres minimum)</label>
                   <input type="password" class="email-bt" id="mot_de_passe" placeholder="Votre mot de passe" name="mot_de_passe"  minlength="8" required>
-                
+
                 </div>
-                
+
                 <input type="checkbox" onclick="Afficher()"> Afficher le mot de passe
                 <script>
                   function Afficher()
-                  { 
-                  var input = document.getElementById("mot_de_passe"); 
+                  {
+                  var input = document.getElementById("mot_de_passe");
                   if (input.type === "password")
-                  { 
-                  input.type = "text"; 
-                  } 
+                  {
+                  input.type = "text";
+                  }
                   else
-                  { 
-                  input.type = "password"; 
-                  } 
-                  } 
+                  {
+                  input.type = "password";
+                  }
+                  }
                   </script>
 
                 <div class="form-group">
@@ -310,7 +310,7 @@ background-color: #000000;
         if (window.grecaptcha && window.jQuery) {
             jQuery('.g-recaptcha').each(function () {
                 var $recaptcha = jQuery(this);
- 
+
                 if ($recaptcha.is(':empty')) {
                     $recaptcha.data('recaptcha-id', grecaptcha.render($recaptcha[0]));
                 }
@@ -404,6 +404,6 @@ echo "<script>alert('Vous avez ajoute un user');</script>";
 
 }
 $hash = password_hash($mot_de_passe, PASSWORD_DEFAULT);
-?>  
+?>
 </body>
 </html>

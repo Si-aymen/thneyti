@@ -52,17 +52,17 @@ $liste=$adC->afficherUser() ;
             <h1>THNEYTI</h1>
         </div>
         <ul>
-            <li><a href="index.php"><img src="dashboard (2).png" alt="">&nbsp; <span> Dashboard</span> </a></li>
-            <li><a href="index.php"><img src="reading-book (1).png" alt="">&nbsp;<span>Offers</span> </a> </li>
+            <li><a href="dashboard.php"><img src="dashboard (2).png" alt="">&nbsp; <span> Dashboard</span> </a></li>
+            <li><a href="offre.php"><img src="reading-book (1).png" alt="">&nbsp;<span>Offers</span> </a> </li>
             <li><a href="index.php"><img src="teacher2.png" alt="">&nbsp;<span>Clients</span>  </a></li>
             <li><a href="indexreclamation.php"><img src="school.png" alt="">&nbsp;<span>Reclamations</span>  </a></li>
             <li><a href="indexrep.php"><img src="school.png" alt="">&nbsp;<span>Réponses</span>  </a></li>
             <li><a href="indexcat.php"><img src="school.png" alt="">&nbsp;<span>Catégories</span>  </a></li>
             <li><a href="reservation_index.php"><img src="payment.png" alt="">&nbsp;<span>reservation</span>  </a></li>
+            <li><a href="forum.php"><img src="info.png" alt="">&nbsp;<span>forum</span>  </a></li>
             <li><a href ="index_coupon.php"><img src="coupon.png" alt="">&nbsp;<span>code</span></a> </li>
-            <li><a href ="index_pub.php"><img src="settings.png" alt="">&nbsp;<span>publicite</span></a> </li>
-            <li><a href="index.php"><img src="help-web-button.png" alt="">&nbsp; <span>Help</span> </a></li>
-            <li><a href="index.php"><img src="settings.png" alt="">&nbsp;<span>Settings</span> </a> </li>
+            <li><a href ="index_pub.php"><img src="settings.png" alt="">&nbsp;<span>publicite</span></a> </li>       
+            <li><a href="indexticket.php"><img src="settings.png" alt="">&nbsp;<span>Commande</span> </a> </li>
         </ul>
     </div>
 
@@ -94,7 +94,7 @@ new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_el
 
                     
                     <div class="img-case">
-                        <a href="../../front/index.html" >
+                        <a href="../../front/index.php  " >
                         <img src="user.png" alt="">
                         </a>
                         
@@ -104,42 +104,10 @@ new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_el
         </div>
         <div class="content">
             <div class="cards">
-                <div class="card">
-                    <div class="box">
-                        <h1>194</h1>
-                        <h3>Clients</h3>
-                    </div>
-                    <div class="icon-case">
-                        <img src="students.png" alt="">
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="box">
-                        <h1>53</h1>
-                        <h3>Offres reservees </h3>
-                    </div>
-                    <div class="icon-case">
-                        <img src="teachers.png" alt="">
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="box">
-                        <h1>5</h1>
-                        <h3>Reclamations</h3>
-                    </div>
-                    <div class="icon-case">
-                        <img src="schools.png" alt="">
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="box">
-                        <h1>3500</h1>
-                        <h3>Effectuees</h3>
-                    </div>
-                    <div class="icon-case">
-                        <img src="income.png" alt="">
-                    </div>
-                </div>
+                
+                
+               
+               
             </div>
 
 
@@ -198,15 +166,7 @@ new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_el
                 <td><a href="modifier.php?id=<?php echo $adh['id']; ?>" class="btn">Modifier</a></td>
                 <td><a href="supprimer.php?id=<?php echo $adh['id']; ?>" class="btn">Supprimer</a></td>
                
-                <td>
-                    <form method="POST"
-                    action="detail.php">
-    
-                    <input type="submit" value="Contacter" class="btn" >
-                    <input type="hidden" name="id" value="<?php echo $adh["id"] ; ?>">
-                  
-            </form>
-            </td>
+                <td><a href="mailUser.php?id=<?php echo $adh['id']; ?>" class="btn">Contacter</a></td>
 
             </tr>
         <?php

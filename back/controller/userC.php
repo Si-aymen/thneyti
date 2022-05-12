@@ -1,6 +1,6 @@
 <?php
-require '../config.php';
-include '../model/user.php';
+require_once '../config.php';
+require_once '../model/user.php';
 class userC{
 
 	/*afficher*/
@@ -118,19 +118,17 @@ try{
         }
 	} 
 
-    public function recupererUser($id){
-        $sql="SELECT * from user where id=$id";
+    function recupererUser($id){
+        $sql="SELECT * from  user where id=$id";
         $db = config::getConnexion();
         try{
-        $query=$db->prepare($sql);
-        $query->execute();
-        $liste=$query->fetch();
+        $liste=$db->query($sql);
         return $liste;
         }
-             catch (Exception $e){
-                 die('Erreur: '.$e->getMessage());
-             }
-      }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+    }
 
 
       public function rechercheUser($key)
@@ -145,7 +143,14 @@ try{
           }
       }
     
-
+      public function getRowsU() {
+        $sql = "SELECT COUNT(*) FROM user";
+        $db = config::getConnexion();
+        $stmt = $db->query($sql);
+        $count = $stmt->fetchColumn();
+        //return $count;
+        print $count;
+    }
 }
 
 

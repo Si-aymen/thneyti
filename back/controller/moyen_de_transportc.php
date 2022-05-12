@@ -128,13 +128,13 @@ class moyen_de_transportc{
             }
 
 
-            public function getRowsNumber_moy() {
+            public function getRowsT() {
                 $sql = "SELECT COUNT(*) FROM moyen_de_transport";
                 $db = config::getConnexion();
                 $stmt = $db->query($sql);
                 $count = $stmt->fetchColumn();
-                return $count;
-                // print $count;
+              
+                print $count;
             }
 
 

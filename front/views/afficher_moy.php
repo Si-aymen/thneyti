@@ -1,15 +1,15 @@
-<?php 
+<?php
 include '../controller/Moyen_de_transportc.php';
 require_once '../model/Moyen_de_transport.php';
 
-$moyen_de_transportc =new moyen_de_transportc(); 
+$moyen_de_transportc =new moyen_de_transportc();
 
 $liste =$moyen_de_transportc->afficher();
-$s=0;  
+$s=0;
 
 if(isset($_POST['id_moy'])&&
-isset($_POST['prix'])&& 
-isset($_POST['disponibilite']) && 
+isset($_POST['prix'])&&
+isset($_POST['disponibilite']) &&
 isset($_POST['depart'])&&
 isset($_POST['destination'])&&
 isset($_POST['date_depart'])&&
@@ -94,25 +94,26 @@ background-color: #000000;
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
-                    <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+                    <div class="logo"><a href="index_home.php"><img src="images/logo.png"></a></div>
                 </div>
                 <div class="col-sm-6 col-lg-9">
                     <div class="menu_text">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="#taxis">Car</a></li>
-                            <li><a href="#booking">Booking</a></li>
-                            <li><a href="#contact">Contact Us</a></li>
-                            <li><a href="#about">Support</a></li>
-                            <li><a href="#"><img src="images/search-icon.png"></a></li>
+                            <li><a href="../index.php">Car</a></li>
+                            <li><a href="afficher_moy.php">moyens de transport </a></li>
+                            <li><a href="transportalternatif.php">transport +</a></li>
+                            <li><a href="ajouterReclamation.php">Support</a></li>
+
+
                             <div id="myNav" class="overlay">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="overlay-content">
-                  <a href="index.html">Home</a>
-                  <a href="#taxis">Car</a>
-                  <a href="#booking">Booking</a>
-                  <a href="#contact">Contact Us</a>
-                  <a href="#about">Support</a>
+                  <a href="connexion.php">sign in</a>
+                  <a href="ajouter.php">sign up</a>
+
+                  
+
+
                 </div>
                 </div>
                 <span  style="font-size:33px;cursor:pointer; color: #ffffff;" onclick="openNav()"><img src="images/toggle-menu.png" class="toggle_menu"></span>
@@ -144,16 +145,16 @@ background-color: #000000;
             foreach ($liste as  $adh){
           ?>
 
-           
-          
-          
+
+
+
             <div class="col-sm-4">
               <div class="taxi_main">
                 <div class="round_1">01</div>
                 <h2 class="carol_text">Ride : </h2>
-                <p class="reader_text"><?php echo $adh['depart'];?> ---><?php echo $adh['destination'];?> <br> 
+                <p class="reader_text"><?php echo $adh['depart'];?> ---><?php echo $adh['destination'];?> <br>
                 <?php echo $adh['date_depart'];?></p>
-                <div class="images_2"><a href="details_moy.php?id_moy=<?php echo $adh['id_moy']; ?>"><img src="images/img-2.png"></a></div>
+                <div class="images_2"><a href="views/details_moy.php?id_moy=<?php echo $adh['id_moy']; ?>"><img src="images/img-2.png"></a></div>
               </div>
             </div>
             <?php
@@ -164,7 +165,7 @@ background-color: #000000;
           </div>
         </div>
     </div>
-    
+
 
 
   </div>

@@ -169,6 +169,14 @@ public function triparcin(){
     }
 
 }
+public function getRowsRC() {
+    $sql = "SELECT COUNT(*) FROM reclamation";
+    $db = config::getConnexion();
+    $stmt = $db->query($sql);
+    $count = $stmt->fetchColumn();
+  
+    print $count;
+}
 
  	
 }
