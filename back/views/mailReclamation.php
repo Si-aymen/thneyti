@@ -1,7 +1,7 @@
 <?php
 
 require_once "../controller/ReclamationC.php";
-require_once "../models/reclamation.php";
+require_once "../model/reclamation.php";
 
 if (isset($_GET['cin']))
 {

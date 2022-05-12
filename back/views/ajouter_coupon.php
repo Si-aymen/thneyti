@@ -35,8 +35,7 @@
 
 
 <?php 
-include '../controller/couponC.php';
-include '../models/coupon.php';
+require_once '../controller/couponC.php';
 
 
 $couponC=new couponC();

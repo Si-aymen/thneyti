@@ -1,7 +1,7 @@
 <?php
 
 $hostname="localhost";
-$db="projet_web";
+$db="thneyti";
 $username="root";
 $password="";
 $et=0;
